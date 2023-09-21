@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String           @id @default(uuid())
+  name           String
+  password       String
+  email          String           @unique
+  steamId        String?          @unique
+  accessLevel    accessLevel      @default(BASIC)
+  profileImg     String           @default("")
+  ProductComment ProductComment[]
+  SteamAccount   SteamAccount?    @relation(fields: [steamId], references: [id])
+  boughtItems    soldItem[]
+
+  @@unique([id, email])
+}
+
+model SteamAccount {
+  id   String @id
+  user User?
+}
+
+model HeroSet {
+  id             String           @id @default(uuid())
+  title          String           @unique
+  hero           String
+  price          Int
+  year           String
+  total          Int              @default(0)
+  isAvailable    Boolean?         @default(false)
+  description    String?
+  categoryId     String
+  HeroImg        HeroImg[]
+  category       Category         @relation(fields: [categoryId], references: [id])
+  ProductComment ProductComment[]
+}
+
+model HeroImg {
+  id    String   @id @default(uuid())
+  link  String
+  setId String?
+  set   HeroSet? @relation(fields: [setId], references: [id])
+}
+
+model soldItem {
+  id            String   @id @default(uuid())
+  buyerId       String
+  buyerEmail    String
+  isDelivered   Boolean  @default(false)
+  dateSold      DateTime @default(now())
+  dateDelivered DateTime
+  buyer         User     @relation(fields: [buyerId, buyerEmail], references: [id, email])
+}
+
+model ProductComment {
+  id      String  @id @default(uuid())
+  setId   String
+  buyerId String
+  text    String
+  buyer   User    @relation(fields: [buyerId], references: [id])
+  set     HeroSet @relation(fields: [setId], references: [id])
+}
+
+model Category {
+  id      String    @id @default(uuid())
+  title   String
+  HeroSet HeroSet[]
+}
+
+enum accessLevel {
+  BASIC
+  ADMIN
+}
