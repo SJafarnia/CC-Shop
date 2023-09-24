@@ -1,10 +1,15 @@
+import Breadcrumb from "@/components/layout/Breadcrumb";
 import AllSetsTemplate from "@/components/templates/AllSetsTemplate";
+
 import type { Metadata } from "next";
 
 export default async function AllSets() {
 
     return (
-        <AllSetsTemplate />
+        <>
+            <Breadcrumb home={true} allSets={true} />
+            <AllSetsTemplate />
+        </>
     )
 }
 

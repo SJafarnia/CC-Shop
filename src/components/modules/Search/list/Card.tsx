@@ -17,7 +17,7 @@ export default function Card({ src, alt, hero, setName, price, title }: data) {
             href={`/all-sets/${slugify(title)}`}
             className="mx-2 relative animate-fadeOut mt-6 flex flex-col justify-between rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 sm:shrink-0 sm:grow sm:basis-0">
             <Image
-                className="rounded-t-lg transition-opacity h-[352.55px] w-full"
+                className="rounded-t-lg transition-opacity h-[353.55px] w-full"
                 src={src}
                 alt={alt}
                 width={317}

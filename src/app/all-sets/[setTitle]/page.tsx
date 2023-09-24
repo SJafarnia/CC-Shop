@@ -5,6 +5,7 @@ import React from 'react'
 import { setType } from 'types'
 import { slugify, deslugify } from "@utils/slugify"
 import { Metadata, ResolvingMetadata } from 'next'
+import Breadcrumb from '@/components/layout/Breadcrumb'
 
 export const dynamicParams = true
 export const revalidate = 3600
@@ -27,7 +28,10 @@ async function singleSet({ params }: { params: { setTitle: string } }) {
         return notFound()
     }
     return (
-        <SingleSetTemplate {...set} />
+        <>
+            <Breadcrumb allSets={true} singleSet={set.title} />
+            <SingleSetTemplate {...set} />
+        </>
     )
 }
 

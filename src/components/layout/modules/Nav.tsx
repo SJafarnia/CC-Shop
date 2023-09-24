@@ -1,29 +1,34 @@
+import Link from "next/link";
+
 export default function Nav() {
     return (
         <div className="flex flex-col text-sm justify-between">
             <div className="navItems flex w-2/4 flex-col mb-2">
                 <div className="p-1 ml-2 mb-2">
-                    <a href="/" className="">Home Page</a>
+                    <Link href="/" className="">Home Page</Link>
                 </div>
                 <div className="p-1 ml-2 mb-2">
-                    <a href="/">
+                    <Link href="/all-sets">
                         <span>{"All Collector's Caches"}</span>
-                    </a>
+                    </Link>
                 </div>
                 <div className="p-1 ml-2 mb-2">
-                    <a href="/" className="">About Us</a>
+                    <Link href="/about" className="">About Us</Link>
                 </div>
                 <div className="p-1 ml-2 mb-2">
-                    <a href="/" className="">Terms of Service</a>
+                    <Link href="/privacy-policy" className="">Privacy Policy</Link>
                 </div>
                 <div className="p-1 ml-2 mb-2">
-                    <a href="/" className="">Retun & Refund Policy</a>
+                    <Link href="/" className="">Terms of Service</Link>
                 </div>
                 <div className="p-1 ml-2 mb-2">
-                    <a href="/" className="">Shipping Policy</a>
+                    <Link href="/refund-policy" className="">Retun & Refund Policy</Link>
                 </div>
                 <div className="p-1 ml-2 mb-2">
-                    <a href="/" className="">FAQs</a>
+                    <Link href="/shipping-policy" className="">Shipping Policy</Link>
+                </div>
+                <div className="p-1 ml-2 mb-2">
+                    <Link href="/" className="">FAQs</Link>
                 </div>
             </div>
         </div>

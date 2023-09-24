@@ -9,12 +9,12 @@ datasource db {
 
 model User {
   id             String           @id @default(uuid())
-  name           String
+  // name           String
   password       String
   email          String           @unique
   steamId        String?          @unique
   accessLevel    accessLevel      @default(BASIC)
-  profileImg     String           @default("")
+  profileImg     String?           @default("")
   ProductComment ProductComment[]
   SteamAccount   SteamAccount?    @relation(fields: [steamId], references: [id])
   boughtItems    soldItem[]
