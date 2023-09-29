@@ -1,7 +1,18 @@
 import Link from "next/link";
 import PopoverSearchBar from "./modules/PopoverSearchBar";
+import NavAuth from "./modules/NavAuth";
+import { getServerSession } from "next-auth/next"
+import { options } from "@app/api/(auth-group)/auth/[...nextauth]/options"
+import prisma from "@utils/prisma";
 
-export default function Navbar() {
+export default async function Navbar() {
+    const session = await getServerSession(options)
+
+    const user = await prisma.user.findUnique({
+        where: {
+            email: session?.user?.email || ""
+        }
+    })
 
     return (
         <nav className="px-2 mt-10 xs:max-w-xs sm:max-w-2xl md:max-w-3xl lg:max-w-5xl mx-auto">
@@ -27,16 +38,20 @@ export default function Navbar() {
                     </div>
                 </div>
                 <div className="navutils flex justify-between w-2/12">
+                    {user?.accessLevel === "ADMIN" ?
+                        <Link href={"/admin/new-set"}>
+                            <div className="post">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15m0-3l-3-3m0 0l-3 3m3-3V15" />
+                                </svg>
+                            </div>
+                        </Link>
+                        : null}
                     <div className="login">
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                            </svg>
-                        </button>
+                        <NavAuth isLoggedIn={session?.user?.email ? true : false} />
                     </div>
                     <div className="searchbtn">
-                        <PopoverSearchBar/>
-                        
+                        <PopoverSearchBar />
                     </div>
                     <div className="cart">
                         <button>
@@ -47,6 +62,6 @@ export default function Navbar() {
                     </div>
                 </div>
             </div>
-        </nav>
+        </nav >
     )
 }

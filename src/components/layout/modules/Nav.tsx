@@ -28,7 +28,7 @@ export default function Nav() {
                     <Link href="/shipping-policy" className="">Shipping Policy</Link>
                 </div>
                 <div className="p-1 ml-2 mb-2">
-                    <Link href="/" className="">FAQs</Link>
+                    <Link href="/faqs" className="">FAQs</Link>
                 </div>
             </div>
         </div>

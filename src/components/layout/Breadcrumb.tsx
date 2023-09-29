@@ -1,6 +1,5 @@
 
 function Breadcrumb(props: any) {
-    const x = Array.from(Object.keys(props))
 
     return (
         <nav className="bg-grey-light w-full rounded-md mt-5 ml-2 px-2">
@@ -44,9 +43,7 @@ function Breadcrumb(props: any) {
                                 className="transition duration-150 pointer-events-none ease-in-out text-neutral-500 dark:text-neutral-400"
                             >{props.singleSet}</p>
                         </li>
-                        <li>
-                            <span className="mx-2 text-neutral-500 dark:text-neutral-400"></span>
-                        </li>
+
                     </>
                 }
 
@@ -57,9 +54,7 @@ function Breadcrumb(props: any) {
                                 className="transition duration-150 pointer-events-none ease-in-out text-neutral-500 dark:text-neutral-400"
                             >About Us</p>
                         </li>
-                        <li>
-                            <span className="mx-2 text-neutral-500 dark:text-neutral-400"></span>
-                        </li>
+
                     </>
                 }
 
@@ -69,6 +64,20 @@ function Breadcrumb(props: any) {
                             <p
                                 className="transition duration-150 pointer-events-none ease-in-out text-neutral-500 dark:text-neutral-400"
                             >Privay Policy</p>
+                        </li>
+                        <li>
+                            <span className="mx-2 text-neutral-500 dark:text-neutral-400"></span>
+                        </li>
+                    </>
+                }
+
+
+                {props.faq &&
+                    <>
+                        <li>
+                            <p
+                                className="transition duration-150 pointer-events-none ease-in-out text-neutral-500 dark:text-neutral-400"
+                            >FAQs</p>
                         </li>
                         <li>
                             <span className="mx-2 text-neutral-500 dark:text-neutral-400"></span>

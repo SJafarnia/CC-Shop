@@ -4,10 +4,9 @@ import AllSetsTemplate from "@/components/templates/AllSetsTemplate";
 import type { Metadata } from "next";
 
 export default async function AllSets() {
-
     return (
         <>
-            <Breadcrumb home={true} allSets={true} />
+            <Breadcrumb allSets={true} />
             <AllSetsTemplate />
         </>
     )

@@ -19,3 +19,8 @@ export type setType = {
     } | null
 }
 export type setTypeArray = setType[]
+
+export type credentialsType = {
+    email: string,
+    password: string
+}
