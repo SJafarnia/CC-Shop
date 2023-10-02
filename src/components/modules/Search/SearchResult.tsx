@@ -40,7 +40,6 @@ export const fetchDB = async (q: string): Promise<setTypeArray> => {
     })
 
     return data
-
 }
 
 export default async function SearchResult({ q }: qType) {

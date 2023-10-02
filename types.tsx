@@ -24,3 +24,12 @@ export type credentialsType = {
     email: string,
     password: string
 }
+
+export type cartItemsType = {
+    cartItems: {
+        hero: string,
+        title: string,
+        price: number,
+        img: string
+    }[]
+}

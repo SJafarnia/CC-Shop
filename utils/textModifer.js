@@ -14,3 +14,11 @@ export function deslugify(slug) {
         .replace(/-/g, ' ')
         .replace(/(^|\s)\S/g, (match) => match.toUpperCase());
 }
+
+export function truncateText(text, maxLength) {
+    if (text.length <= maxLength) {
+        return text;
+    }
+
+    return text.slice(0, maxLength) + '...';
+}

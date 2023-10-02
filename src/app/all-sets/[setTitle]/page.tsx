@@ -3,7 +3,7 @@ import prisma from '@utils/prisma'
 import { notFound } from 'next/navigation'
 import React from 'react'
 import { setType } from 'types'
-import { slugify, deslugify } from "@utils/slugify"
+import { slugify, deslugify } from "@utils/textModifer"
 import { Metadata, ResolvingMetadata } from 'next'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 

@@ -31,7 +31,7 @@ function Recommended({ relatedPosts }: setTypeArray | any) {
                 >
 
                     {relatedPosts.map((post: setType) => (
-                        <SwiperSlide className='!h-auto'>
+                        <SwiperSlide className='!h-auto' key={post.title}>
                             <RecommendCard
                                 src={post.HeroImg[0].link}
                                 alt={`${post.hero} ${post.title} ${post.category?.title}`}

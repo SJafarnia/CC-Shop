@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { slugify } from "@utils/slugify"
+import { slugify } from "@utils/textModifer"
 
 interface data {
     alt: string,

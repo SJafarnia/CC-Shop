@@ -1,6 +1,6 @@
 "use client"
 import { useState } from 'react';
-import SearchBar from './SearchBar';
+import SearchBar from '../SearchBar';
 
 function PopoverSearchBar() {
     const [isSearchOpen, setIsSearchOpen] = useState(false);

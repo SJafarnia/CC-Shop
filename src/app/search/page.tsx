@@ -1,5 +1,4 @@
-import prisma from "@utils/prisma";
-import { deslugify } from "@utils/slugify";
+import { deslugify } from "@utils/textModifer"
 import { notFound } from 'next/navigation';
 import SearchTemplate from '@/components/templates/SearchTemplate';
 
