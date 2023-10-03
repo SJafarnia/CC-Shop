@@ -35,6 +35,7 @@ export default function ListGrid({ data }: any) {
                         </Fragment>
                     )
                 })}
+
             </div>
             <Paginator items={data.length} currentPage={currentPage} pageSize={pageSize} onPageChange={onPageChange} />
         </>

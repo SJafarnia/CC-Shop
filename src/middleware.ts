@@ -13,7 +13,7 @@ export default async function middleware(
     event: NextFetchEvent
 ): Promise<Response | undefined> {
     const ip = request.ip ?? "127.0.0.1";
-    console.log("ip: ", request.ip)
+
     const { success, pending, limit, reset, remaining } = await ratelimit.limit(
         ip
     );
@@ -32,5 +32,7 @@ export default async function middleware(
 }
 
 export const config = {
-    matcher: "/",
+    matcher: [
+        '/((?!_next/static|_next/image|favicon.ico).*)',
+    ],
 };

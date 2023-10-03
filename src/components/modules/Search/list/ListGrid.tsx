@@ -1,14 +1,20 @@
 "use client"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Card from "./Card";
 import { Fragment } from "react"
 import { setType, setTypeArray } from "types";
 import Paginator from "../pagination/Paginator";
+import { useDispatch } from "react-redux";
+import { setLoadingState } from "@redux/features/SearchLoadingSlice";
 
 export default function ListGrid({ data }: any) {
-
+    const dispatch = useDispatch()
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = 6;
+
+    useEffect(() => {
+        dispatch(setLoadingState(false))
+    }, [data])
 
     const onPageChange = (page: number) => {
         setCurrentPage(page);
@@ -17,7 +23,7 @@ export default function ListGrid({ data }: any) {
     let postsToShow = data.slice(currentPage * pageSize - pageSize, currentPage * pageSize)
 
     if (data.length == pageSize) postsToShow = data
-
+    
     return (
         <>
             <div className="grid xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">

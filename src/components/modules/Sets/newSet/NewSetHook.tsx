@@ -12,7 +12,6 @@ export function NewSetHook(formData: formType, imgLink: string | null, setIsLoad
     useEffect(() => {
         const upload = async () => {
             if (imgLink) {
-                console.log("hook called")
                 const data = await fetch("/api/add-set/create", {
                     method: "POST",
                     body: JSON.stringify({ ...formData, imgLink }),

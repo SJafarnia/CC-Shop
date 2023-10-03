@@ -11,8 +11,11 @@ const nextConfig = {
         ],
     },
     experimental: {
-        serverActions: true
-    }
+        serverActions: true,
+        workerThreads: false,
+        cpus: 1
+    },
+
 }
 
 module.exports = nextConfig

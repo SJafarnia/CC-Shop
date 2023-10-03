@@ -17,9 +17,9 @@ const config: Config = {
       ,
       colors: {
         "veryPeri": "#6667AB",
-        "livingCoral": "#ff6f61",
+        "livingCoral": "#EA6759",
         "heavyPeri": "#6768ab",
-        "lightCoral": "#fc8b79",
+        "lightCoral": "#F88F58",
       },
       animation: {
         fadeOut: 'fadeOut 1s ease-in-out',

@@ -11,7 +11,6 @@ export const dynamicParams = true
 export const revalidate = 3600
 
 
-
 async function singleSet({ params }: { params: { setTitle: string } }) {
 
     const set: setType | null = await prisma.heroSet.findUnique({

@@ -6,7 +6,6 @@ import SearchBar from "@/components/layout/modules/SearchBar";
 
 
 export const fetchDB = async (q: string): Promise<setTypeArray> => {
-
     const data = await prisma.heroSet.findMany({
         where: {
             OR: [
@@ -36,7 +35,6 @@ export const fetchDB = async (q: string): Promise<setTypeArray> => {
             HeroImg: true,
             category: true
         }
-
     })
 
     return data
