@@ -1,11 +1,11 @@
 "use client"
 import { useState, useEffect } from "react"
-import Card from "./Card";
 import { Fragment } from "react"
-import { setType, setTypeArray } from "types";
-import Paginator from "../pagination/Paginator";
+import { setType } from "types";
+import Paginator from "@modules/Sets/allSets/pagination/Paginator";
 import { useDispatch } from "react-redux";
 import { setLoadingState } from "@redux/features/SearchLoadingSlice";
+import Card from "@modules/Sets/allSets/list/Card"
 
 export default function ListGrid({ data }: any) {
     const dispatch = useDispatch()
@@ -23,11 +23,11 @@ export default function ListGrid({ data }: any) {
     let postsToShow = data.slice(currentPage * pageSize - pageSize, currentPage * pageSize)
 
     if (data.length == pageSize) postsToShow = data
-    
+
     return (
         <>
             <div className="grid xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                {postsToShow.map((item: setType) => {
+                {postsToShow?.map((item: setType) => {
                     return (
                         <Fragment key={item.id}>
                             <Card

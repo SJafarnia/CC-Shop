@@ -1,12 +1,10 @@
+import { setTypeArray } from "types"
 import SearchResult from "../modules/Search/SearchResult"
 
-export type qType = {
-    q: string
-}
 
-function SearchTemplate({ q }: qType) {
+function SearchTemplate({ data, q }: { data: setTypeArray, q: string }) {
     return (
-        <SearchResult q={q} />
+        <SearchResult data={data} q={q} />
     )
 }
 

@@ -14,10 +14,10 @@ interface data {
 
 export default function Card({ src, alt, hero, setName, price, title }: data) {
     return (
-        <div>
+        <div className="shadow-lg">
             <Link
                 href={`/all-sets/${slugify(title)}`}
-                className="mx-2 relative animate-fadeOut mt-6 flex flex-col justify-between rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] sm:shrink-0 sm:grow sm:basis-0">
+                className="relative animate-fadeOut flex flex-col justify-between rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] sm:shrink-0 sm:grow sm:basis-0">
                 <Image
                     className="rounded-t-lg transition-opacity h-[352.55px] w-full"
                     src={src}
@@ -27,7 +27,7 @@ export default function Card({ src, alt, hero, setName, price, title }: data) {
                 // layout="responsive"
                 />
             </Link>
-            <div className="p px-8 py-6 text-center">
+            <div className="px-8 py-6 text-center">
                 <Link href={`/search?q=${hero}`}>
                     <h5
                         className="mb-2 text-lg/10 font-medium leading-tight text-neutral-800">

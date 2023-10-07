@@ -1,36 +1,28 @@
 'use client'
-
 import { useEffect, useState } from "react"
 import "tw-elements/dist/css/tw-elements.min.css";
-import FormInput from "./FormInput";
+import FormInput from "@modules/Sets/newSet/FormInput";
 import { useRouter } from "next/navigation";
+import { formType, setType } from "types";
 
-export interface formType {
-    [key: string]: string | number | null,
+type setEditType = {
     title: string,
     hero: string,
-    price: number | null,
+    price: number,
     year: string,
-    category: string,
-    description: string,
+    total: number,
+    description: string | null,
+    category: {} | null
 }
 
-export default function Form() {
-    const [img, setImg] = useState<File | null>(null);
-    const [imgLink, setImgLink] = useState<string | null>(null);
+function EditSet(params: setType) {
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [isFull, setIsFull] = useState<boolean | null>(null)
     const router = useRouter()
 
-    const [formData, setFormData] = useState<formType>({
-        title: "",
-        hero: "",
-        price: null,
-        year: "",
-        category: "",
-        description: "",
-        total: 0
-    })
+    const { hero, title, year, price, total, description, category, id } = params
+
+    const [formData, setFormData] = useState<formType>({ hero, title, year, price, total, description, category: category?.title })
 
     const emptyFields = Object.keys(formData).reduce((result, key) => {
         const value = formData[key]
@@ -46,38 +38,36 @@ export default function Form() {
         }
     }, [emptyFields])
 
+    // useEffect(() => {
+    //     if (params) {
+    //         setFormData({ hero, title, year, price, total, description, category: category?.title })
+    //     }
+    // }, [params])
+
     const formHandler = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = event.target
         setFormData({ ...formData, [name]: value })
     }
 
-    const fileSetter = async (event: React.ChangeEvent<HTMLInputElement>) => {
-        const file: File | null = event.target.files?.[0] || null;
-        if (file?.type == 'image/png' || file?.type == 'image/jpeg' || file?.type == 'image/jpg') {
-            setImg(file)
-        }
-        // console.log(file?.type)
-        return
-    }
-
     const sendHandler = async () => {
         const isFull = Object.values(formData).every(x => x !== null && x !== "" && x !== '');
-        if (img && isFull) {
-
+        if (isFull) {
             setIsLoading((prev) => true)
             const form = new FormData()
-            form.append("file", img)
-
             for (const [key, value] of Object.entries(formData)) {
                 form.append(key, value as string | Blob);
             }
+            form.append("id", id)
+
+            if (category?.title != formData.category) {
+                form.append("categoryId", category?.id || "")
+            }
             try {
-                const data = await fetch('/api/add-set/upload', {
+                const data = await fetch('/api/edit-set', {
                     method: "POST",
                     body: form,
                 }).then(r => r.json())
                 setIsLoading((prev) => false)
-                setImgLink(data.imgLink)
                 //toast success
                 router.push("/all-sets")
             } catch (err) {
@@ -139,13 +129,13 @@ export default function Form() {
                 <FormInput value={formData.year} type="text" name="year" placeholder="Year" setter={(event: React.ChangeEvent<HTMLInputElement>) => formHandler(event)} />
                 <FormInput value={formData.category} type="text" name="category" placeholder="Category" setter={(event: React.ChangeEvent<HTMLInputElement>) => formHandler(event)} />
             </div>
-
             <div className="relative mb-3" data-te-input-wrapper-init>
                 <textarea
                     className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                     id="description"
                     name="description"
                     rows={2}
+                    value={formData.description || ""}
                     placeholder="Your message"
                     onChange={formHandler}
                 >
@@ -157,53 +147,32 @@ export default function Form() {
                 </label>
             </div>
 
-            <div className="self-center my-5 p-2 flex w-full flex-col md:flex-row">
-                <div className="flex justify-center md:items-center flex-grow p-4">
-                    <label htmlFor="ff" className="p-1 cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 10.5v6m3-3H9m4.06-7.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
+            {
+                isLoading ?
+                    <div
+                        className="p-4 mt-2 mx-auto self-center inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                        role="status">
+                        <span
+                            className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                        >Loading...</span>
+                    </div>
+                    :
+                    <button
+                        className="p-4 mt-2 mx-auto self-center"
+                        onClick={sendHandler}
+                        data-te-toggle="tooltip"
+                        data-te-placement="top"
+                        data-te-ripple-init
+                        data-te-ripple-color="light"
+                        title="Upload">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
                         </svg>
-                    </label>
-                    <input hidden
-
-                        type="file"
-                        className="s"
-                        accept="image/*"
-                        id="ff"
-                        onChange={fileSetter}
-                    />
-                </div>
-
-                <div className="self-center flex-grow">
-                    {img && <img src={URL.createObjectURL(img)} width={550} height={374} className="rounded-md my-2" alt="Selected" />}
-
-                </div>
-
-                {
-                    isLoading ?
-                        <div
-                            className="p-4 mt-2 mx-auto self-center inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                            role="status">
-                            <span
-                                className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
-                            >Loading...</span>
-                        </div>
-                        : img ? < button
-                            className="p-4 mt-2 mx-auto self-center"
-                            onClick={sendHandler}
-                            data-te-toggle="tooltip"
-                            data-te-placement="top"
-                            data-te-ripple-init
-                            data-te-ripple-color="light"
-                            title="Upload">
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
-                            </svg>
-                        </button> : null
-                }
-            </div>
-        </div >
+                    </button>
+            }
+        </div>
     )
 }
 
+export default EditSet

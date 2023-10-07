@@ -6,9 +6,10 @@ type props = {
     placeholder: string,
     setter(event: React.ChangeEvent<HTMLInputElement>): void,
     type: string,
+    value: any
 }
 
-export default function FormInput({ name, placeholder, setter, type }: props) {
+export default function FormInput({ name, placeholder, setter, type, value }: props) {
 
 
     return (
@@ -18,6 +19,7 @@ export default function FormInput({ name, placeholder, setter, type }: props) {
                 name={name}
                 className="border-0 p-2 rounded-md shadow-inner peer block min-h-[auto] w-full bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-heavyPeri data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-veryPeri dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                 id={name}
+                value={value}
                 placeholder={placeholder}
                 onChange={(event) => setter(event)}
             />

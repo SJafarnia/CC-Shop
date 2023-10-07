@@ -5,7 +5,7 @@ import { Redis } from "@upstash/redis";
 
 const ratelimit = new Ratelimit({
     redis: Redis.fromEnv(),
-    limiter: Ratelimit.slidingWindow(3, "10 s"),
+    limiter: Ratelimit.slidingWindow(40, "60 s"),
 });
 
 export default async function middleware(
@@ -23,7 +23,7 @@ export default async function middleware(
         return new NextResponse("Too Many Requests", {
             status: 429,
             headers: {
-                ["retry-after"]: `${retryAfter}`
+                ["Retry-After"]: `${retryAfter}`
             },
         });
     }

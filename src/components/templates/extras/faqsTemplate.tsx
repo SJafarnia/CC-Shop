@@ -1,7 +1,7 @@
 "use client"
 import { useEffect } from "react";
 
-function faqsTemplate() {
+function FaqsTemplate() {
     useEffect(() => {
         const init = async () => {
             const { Collapse, initTE } = await import("tw-elements");
@@ -143,4 +143,4 @@ function faqsTemplate() {
     )
 }
 
-export default faqsTemplate
+export default FaqsTemplate

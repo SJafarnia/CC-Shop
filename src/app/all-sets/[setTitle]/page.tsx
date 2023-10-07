@@ -1,28 +1,16 @@
 import SingleSetTemplate from '@/components/templates/SingleSetTemplate'
 import prisma from '@utils/prisma'
 import { notFound } from 'next/navigation'
-import React from 'react'
-import { setType } from 'types'
 import { slugify, deslugify } from "@utils/textModifer"
 import { Metadata, ResolvingMetadata } from 'next'
 import Breadcrumb from '@/components/layout/Breadcrumb'
+import { getSet } from '@utils/queries'
 
 export const dynamicParams = true
-export const revalidate = 3600
-
 
 async function singleSet({ params }: { params: { setTitle: string } }) {
 
-    const set: setType | null = await prisma.heroSet.findUnique({
-        where: {
-            title: deslugify(params.setTitle)
-        },
-        include: {
-            HeroImg: true,
-            category: true
-        }
-    })
-
+    const set = await getSet(params.setTitle)
     if (!set) {
         return notFound()
     }
@@ -39,7 +27,6 @@ export async function generateStaticParams() {
     return sets.map((set: any) => ({
         setTitle: slugify(set.title),
     }))
-    // return [{ setTitle: "grim" }]
 }
 
 export async function generateMetadata({ params }: { params: { setTitle: string } },

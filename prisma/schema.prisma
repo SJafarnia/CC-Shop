@@ -14,7 +14,7 @@ model User {
   email          String           @unique
   steamId        String?          @unique
   accessLevel    accessLevel      @default(BASIC)
-  profileImg     String?           @default("")
+  profileImg     String?          @default("")
   ProductComment ProductComment[]
   SteamAccount   SteamAccount?    @relation(fields: [steamId], references: [id])
   boughtItems    soldItem[]
@@ -66,6 +66,11 @@ model ProductComment {
   text    String
   buyer   User    @relation(fields: [buyerId], references: [id])
   set     HeroSet @relation(fields: [setId], references: [id])
+}
+
+model Transaction {
+  id String @id @default(uuid())
+  
 }
 
 model Category {

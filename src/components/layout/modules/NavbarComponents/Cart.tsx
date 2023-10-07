@@ -2,7 +2,7 @@
 import dynamic from 'next/dynamic';
 import Image from 'next/image'
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { remCartItem, selectCartItems } from '@redux/features/CartItemsSlice'
 import { slugify, truncateText } from '@utils/textModifer';
@@ -17,25 +17,25 @@ function Cart() {
         return prev + (+cur.price)
     }, 0)
 
-    // useEffect(() => {
-    //     if (showCart == "block") {
-    //         document.body.classList.add('popup-menu-open');
-    //     } else {
-    //         document.body.classList.remove('popup-menu-open');
-    //     }
-    //     return () => {
-    //         document.body.classList.remove('popup-menu-open');
-    //     }
-    // }, [showCart]);
+    useEffect(() => {
+        if (showCart == "-translate-x-[630px]") {
+            document.body.classList.add('popup-menu-open');
+        } else {
+            document.body.classList.remove('popup-menu-open');
+        }
+        return () => {
+            document.body.classList.remove('popup-menu-open');
+        }
+    }, [showCart]);
 
     return (
         <>
-            <div className={`menu-list text-center items-center z-50 cursor-pointer`}>
-                <svg xmlns="http://www.w3.org/2000/svg" onClick={() => setshowCart("-translate-x-[495px]")} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <div className={`menu-list text-center items-center z-40 cursor-pointer`}>
+                <svg xmlns="http://www.w3.org/2000/svg" onClick={() => setshowCart("-translate-x-[630px]")} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                 </svg>
             </div>
-            <div className={`${showCart} duration-500 bg-slate-100 fixed top-0 bottom-0 -right-[510px] xs:w-10/12 md:w-2/4 lg:w-1/4 mr-4 z-50 h-full text-black border-b border-solid border-b-[#1A37601A]`}>
+            <div className={`${showCart} duration-500 ease-in-out bg-slate-100 fixed top-0 bottom-0 -right-[650px] xs:w-full sm:w-full md:w-2/4 lg:w-1/4 mr-4 z-50 h-full text-black border-b border-solid border-b-[#1A37601A]`}>
                 <header className={` rounded-md border-solid border-[#EAEAEA] h-full sticky w-full z-10`}>
                     <section className={`flex flex-col h-full text-black mx-auto relative justify-start text-center`}>
                         <div className='flex flex-col h-full justify-between'>
@@ -50,7 +50,7 @@ function Cart() {
                                         </div>
                                         {/* <Image src="" alt="" className="h-auto w-auto" width={146} height={146}></Image> */}
                                     </div>
-                                    <svg onClick={() => setshowCart("translate-x-[495px]")} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`text-slate-500 w-6 h-6 cursor-pointer`}>
+                                    <svg onClick={() => setshowCart("translate-x-[630px]")} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`text-slate-500 w-6 h-6 cursor-pointer`}>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                     </svg>
                                 </div>
@@ -88,21 +88,15 @@ function Cart() {
                                         </div>
                                     )
                                 })}
-
                                 <div className='flex justify-between items-center p-5 border-b border-b-veryPeri'>
                                     <span className='ml-2 text-lg text-center'>Subtotal</span>
                                     <span className='ml-2 text-lg text-center'>${subTotal}.00</span>
-                                </div>
-                                <div className=' p-4 border-b border-b-veryPeri'>
-                                    <label htmlFor="message" className="block mb-2 text-left text-sm font-medium text-gray-900 ">Special instructions for seller</label>
-                                    <textarea id="message" rows={4} className="block p-2.5 w-full text-sm outline-none text-gray-900 bg-gray-50 rounded-lg border border-veryPeri focus:ring-blue-500 focus:border-veryPeri" placeholder="Your steam id or link"></textarea>
                                 </div>
                             </div>
                             <div className='p-4'>
                                 <button className='p-4 w-full rounded-md bg-veryPeri text-white'>Checkout</button>
                             </div>
                         </div>
-
                     </section>
                 </header>
             </div>

@@ -33,3 +33,14 @@ export type cartItemsType = {
         img: string
     }[]
 }
+
+export interface formType {
+    [key: string]: string | number | null | undefined,
+    title: string,
+    hero: string,
+    price: number | null,
+    year: string,
+    total: number,
+    category: string | null | undefined,
+    description: string | undefined | null,
+}
