@@ -1,4 +1,3 @@
-import Navbar from '@/components/layout/Navbar'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'

@@ -38,12 +38,12 @@ function FaqsTemplate() {
                             aria-labelledby="flush-headingOne" data-te-parent="#accordionFlushExample">
                             <div className="py-4 px-5 text-neutral-500 dark:text-neutral-300">
                                 <ol>
-                                    <li className="list-decimal mt-2 mb-7 pl-1">Browse through our catalog and decide which set(s) you'd like to have.</li>
-                                    <li className="list-decimal mb-7 pl-1">Once you've found the set(s) you want. Simply add it to cart. Important: Under the sellers note, please type in your steam friend code/dota 2 id so that we know which steam account to deliver the set(s) to.</li>
-                                    <li className="list-decimal mb-7 pl-1">Browse through our catalog and decide which set(s) you'd like to have.</li>
+                                    <li className="list-decimal mt-2 mb-7 pl-1">{"Browse through our catalog and decide which set(s) you'd like to have."}</li>
+                                    <li className="list-decimal mb-7 pl-1">{"Once you've found the set(s) you want. Simply add it to cart. Important: Under the sellers note, please type in your steam friend code/dota 2 id so that we know which steam account to deliver the set(s) to."}</li>
+                                    <li className="list-decimal mb-7 pl-1">{"Browse through our catalog and decide which set(s) you'd like to have."}</li>
                                     <p className="mb-7 pl-1"><span className="font-semibold">Tip:</span> {"You can find your steam friend code by going to the steam friends tab > Add friend > Your Friend Code"}</p>
                                     <li className="list-decimal mb-7 pl-1">
-                                        Proceed to checkout and fill in your information. Complete your order and that's it!
+                                        {"Proceed to checkout and fill in your information. Complete your order and that's it!"}
                                     </li>
 
                                 </ol>
@@ -70,16 +70,14 @@ function FaqsTemplate() {
                             aria-labelledby="flush-headingTwo" data-te-parent="#accordionFlushExample">
                             <div className="py-4 px-5 text-neutral-500 dark:text-neutral-300">
                                 <p className="mt-2 mb-7">
-                                    <span className="font-semibold">For first time customers:</span> As much as we would like to deliver the item(s) you've ordered right away, we can't. Per Valve's gifting policy, we still need to be friends on Steam for at least 30 days, before we can gift your purchased item(s) in-game in dota 2. This is mandatory for security reasons and there's no other way to go around it but wait.
+                                    <span className="font-semibold">For first time customers:</span> {"As much as we would like to deliver the item(s) you've ordered right away, we can't. Per Valve's gifting policy, we still need to be friends on Steam for at least 30 days, before we can gift your purchased item(s) in-game in dota 2. This is mandatory for security reasons and there's no other way to go around it but wait."}
                                 </p>
                                 <p className="mb-7">
-                                    <span className="font-semibold">For returning customers: </span>As long as you didn't remove our steam account(s) from your friendslist, you can receive your next order as soon as possible, given that the item(s) ordered is available in that steam account(s) inventory.
+                                    <span className="font-semibold">For returning customers: </span>{"As long as you didn't remove our steam account(s) from your friendslist, you can receive your next order as soon as possible, given that the item(s) ordered is available in that steam account(s) inventory."}
                                 </p>
                                 <p className="mb-7">
-
-                                    If you're not sure if the item is available or not. Feel free to check our inventory/inventories and send us a message for confirmation.
+                                    {"If you're not sure if the item is available or not. Feel free to check our inventory/inventories and send us a message for confirmation."}
                                 </p>
-
                             </div>
                         </div>
                     </div>
@@ -89,7 +87,7 @@ function FaqsTemplate() {
                                 className="group relative flex w-full items-center rounded-none border-0 py-4 px-5 text-left text-base font-bold transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:text-primary-400"
                                 type="button" data-te-collapse-init data-te-collapse-collapsed data-te-target="#flush-collapseThree"
                                 aria-expanded="false" aria-controls="flush-collapseThree">
-                                After I've placed my order. How long before I receive a friend request on Steam?
+                                {"After I've placed my order. How long before I receive a friend request on Steam?"}
                                 <span
                                     className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-[#8FAEE0] dark:group-[[data-te-collapse-collapsed]]:fill-[#eee]">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
@@ -102,17 +100,17 @@ function FaqsTemplate() {
                         <div id="flush-collapseThree" className="!visible hidden rounded-b-lg" data-te-collapse-item
                             aria-labelledby="flush-headingThree" data-te-parent="#accordionFlushExample">
                             <div className="py-4 px-5 text-neutral-500 dark:text-neutral-300">
-                                As mentioned above, our website is run by real human staffs and we only have few at the moment. Due to difference in timezones, please allow at least 24 hours for us to process your order and send in request on steam
+                                {" As mentioned above, our website is run by real human staffs and we only have few at the moment. Due to difference in timezones, please allow at least 24 hours for us to process your order and send in request on steam"}
                             </div>
                         </div>
                     </div>
                     <div className="rounded-none border border-l-0 border-r-0 border-b-0 border-t-0 border-neutral-200">
-                        <h2 className="mb-0" id="flush-headingThree">
+                        <h2 className="mb-0" id="flush-headingFour">
                             <button
                                 className="group relative flex w-full items-center rounded-none border-0 py-4 px-5 text-left text-base font-bold transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:text-primary-400"
-                                type="button" data-te-collapse-init data-te-collapse-collapsed data-te-target="#flush-collapseThree"
-                                aria-expanded="false" aria-controls="flush-collapseThree">
-                                Why is my item not yet delivered when majority of the reviews claims that orders were delivered on time?
+                                type="button" data-te-collapse-init data-te-collapse-collapsed data-te-target="#flush-collapseFour"
+                                aria-expanded="false" aria-controls="flush-collapseFour">
+                                {"Why is my item not yet delivered when majority of the reviews claims that orders were delivered on time?"}
                                 <span
                                     className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-[#8FAEE0] dark:group-[[data-te-collapse-collapsed]]:fill-[#eee]">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
@@ -122,17 +120,17 @@ function FaqsTemplate() {
                                 </span>
                             </button>
                         </h2>
-                        <div id="flush-collapseThree" className="!visible hidden rounded-b-lg" data-te-collapse-item
-                            aria-labelledby="flush-headingThree" data-te-parent="#accordionFlushExample">
+                        <div id="flush-collapseFour" className="!visible hidden rounded-b-lg" data-te-collapse-item
+                            aria-labelledby="flush-headingFour" data-te-parent="#accordionFlushExample">
                             <div className="py-4 px-5 text-neutral-500 dark:text-neutral-300">
                                 <p className="mt-2 mb-7">
-                                    We always strive to deliver orders on time but sometimes, there are unforseen circumstances that may cause delay in delivery.
+                                    {"We always strive to deliver orders on time but sometimes, there are unforseen circumstances that may cause delay in delivery."}
                                 </p>
                                 <p className="mb-7">
-                                    Also for reference, we can only gift 8 items per day following Valve's gifting policy.
+                                    {" Also for reference, we can only gift 8 items per day following Valve's gifting policy."}
                                 </p>
                                 <p className="mb-7">
-                                    Rest assured though that you will receive your order as soon as possible. Should you encounter any delay, please feel free to contact us via email or via our Facebook page @ https://www.facebook.com/dota2collectorscache and we will get back to you in a timely manner.
+                                    {"Rest assured though that you will receive your order as soon as possible. Should you encounter any delay, please feel free to contact us via email or via our Facebook page @ https://www.facebook.com/dota2collectorscache and we will get back to you in a timely manner."}
                                 </p>
                             </div>
                         </div>

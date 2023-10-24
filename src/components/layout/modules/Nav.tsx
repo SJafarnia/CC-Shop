@@ -19,10 +19,7 @@ export default function Nav() {
                     <Link href="/privacy-policy" className="">Privacy Policy</Link>
                 </div>
                 <div className="p-1 ml-2 mb-2">
-                    <Link href="/" className="">Terms of Service</Link>
-                </div>
-                <div className="p-1 ml-2 mb-2">
-                    <Link href="/refund-policy" className="">Retun & Refund Policy</Link>
+                    <Link href="/refund-policy" className="">Return & Refund Policy</Link>
                 </div>
                 <div className="p-1 ml-2 mb-2">
                     <Link href="/shipping-policy" className="">Shipping Policy</Link>

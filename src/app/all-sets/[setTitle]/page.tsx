@@ -10,7 +10,8 @@ export const dynamicParams = true
 
 async function singleSet({ params }: { params: { setTitle: string } }) {
 
-    const set = await getSet(params.setTitle)
+    const set = await getSet(deslugify(params.setTitle))
+
     if (!set) {
         return notFound()
     }
@@ -34,10 +35,6 @@ export async function generateMetadata({ params }: { params: { setTitle: string 
 ): Promise<Metadata> {
     return {
         title: deslugify(params.setTitle),
-        openGraph: {
-            title: params.setTitle,
-            tags: "website"
-        }
     }
 }
 

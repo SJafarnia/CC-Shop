@@ -13,6 +13,7 @@ export default async function Navbar() {
             email: session?.user?.email || ""
         }
     })
+    prisma.$disconnect()
 
     return (
         <nav className="px-2 mt-10 xs:max-w-sm sm:max-w-3xl md:max-w-3xl lg:max-w-5xl mx-auto">

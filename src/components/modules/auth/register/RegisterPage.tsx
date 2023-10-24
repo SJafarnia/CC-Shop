@@ -4,6 +4,7 @@ import { credentialsType } from "types"
 import { useRouter } from "next/navigation"
 import { signIn } from "next-auth/react"
 import Toast from "./Toast"
+import Image from "next/image"
 
 
 function RegisterPage() {
@@ -16,6 +17,7 @@ function RegisterPage() {
     const [created, setCreated] = useState<boolean>(false)
     const router = useRouter()
 
+    // checks password validity
     useEffect(() => {
         setErr(() => [])
         const checker = (pwd: string) => {
@@ -47,17 +49,20 @@ function RegisterPage() {
         if (credentials.password.length) checker(credentials.password)
     }, [credentials.password])
 
+    //input handler func
     const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target
         setCredentials({ ...credentials, [name]: value })
     }
 
-
+    // register func
     const registerHandler = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
+        // set loading to true
         setIsLoading((prev => !prev))
         setErr((prev) => [])
 
+        // register api call
         const req = await fetch("/api/register", {
             method: "POST",
             body: JSON.stringify(credentials),
@@ -66,14 +71,19 @@ function RegisterPage() {
             }
         })
         const res = await req.json()
+        
+        // set loading to false
         setIsLoading((prev => !prev))
+
+        // checks for err from backend 
         if (res?.error) {
             setErr((prevState) => [...prevState, res.message])
             return
         }
+
+        // login func after successful register
         if (!res?.error) {
             setCreated(true)
-
             const req = await signIn("credentials", {
                 email: credentials.email,
                 password: credentials.password,
@@ -88,7 +98,6 @@ function RegisterPage() {
                 }
                 )
                 .catch(e => console.error(e))
-
         }
     }
 
@@ -106,7 +115,7 @@ function RegisterPage() {
                                     <div className="md:mx-6 md:p-12">
 
                                         <div className="text-center">
-                                            <img
+                                            <Image
                                                 className="mx-auto w-48"
                                                 src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
                                                 alt="logo" />
@@ -176,9 +185,8 @@ function RegisterPage() {
                                                         </button>
                                                     </>
                                                 }
-                                                {err.length ? err.map((errText) => (
-                                                    <p className="border-2 border-solid px-1 py-2 animate-fadeOut border-danger-600 text-danger-600 rounded-sm mt-4">{errText}</p>
-
+                                                {err.length ? err.map((errText, indx) => (
+                                                    <p key={indx} className="border-2 border-solid px-1 py-2 animate-fadeOut border-danger-600 text-danger-600 rounded-sm mt-4">{errText}</p>
                                                 ))
                                                     : null}
                                             </div>

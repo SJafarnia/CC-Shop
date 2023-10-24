@@ -1,18 +1,18 @@
+import { montserrat } from '@/app/fonts'
 import React from 'react'
 
 function Features() {
     return (
-        <div className="container my-24 mx-auto md:px-6">
-
+        <div className="container my-32 mx-auto md:px-6">
             <section className="mb-32 text-center">
-                <h2 className="mb-20 text-3xl font-bold">Why is it so great?</h2>
+                <h2 className="mb-20 text-3xl font-bold">Everything you wished for!</h2>
 
                 <div className="grid lg:grid-cols-3 lg:gap-x-12">
                     <div className="mb-12 lg:mb-0">
                         <div
                             className="block h-full rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                             <div className="flex justify-center">
-                                <div className="-mt-8 inline-block rounded-full bg-primary-100 p-4 text-primary shadow-md">
+                                <div className="-mt-8 inline-block rounded-full bg-primary-100 p-4 text-veryPeri shadow-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2"
                                         stroke="currentColor" className="h-7 w-7">
                                         <path strokeLinecap="round" strokeLinejoin="round"
@@ -20,12 +20,12 @@ function Features() {
                                     </svg>
                                 </div>
                             </div>
-                            <div className="p-6">
+                            <div className={`${montserrat.className} p-6`}>
                                 <h5 className="mb-4 text-lg font-semibold">Support 24/7</h5>
                                 <p>
-                                    Laudantium totam quas cumque pariatur at doloremque hic quos
-                                    quia eius. Reiciendis optio minus mollitia rerum labore
-                                    facilis inventore voluptatem ad, quae quia sint.
+                                    Having trouble? Feel free to contact support.<br></br>
+                                    If there are sets you clouldn't find here, Our team may be able to get you what you want!
+
                                 </p>
                             </div>
                         </div>
@@ -35,7 +35,7 @@ function Features() {
                         <div
                             className="block h-full rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                             <div className="flex justify-center">
-                                <div className="-mt-8 inline-block rounded-full bg-primary-100 p-4 text-primary shadow-md">
+                                <div className="-mt-8 inline-block rounded-full bg-primary-100 p-4 text-veryPeri shadow-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2"
                                         stroke="currentColor" className="h-7 w-7">
                                         <path strokeLinecap="round" strokeLinejoin="round"
@@ -43,12 +43,10 @@ function Features() {
                                     </svg>
                                 </div>
                             </div>
-                            <div className="p-6">
+                            <div className={`${montserrat.className} p-6`}>
                                 <h5 className="mb-4 text-lg font-semibold">Safe and solid</h5>
                                 <p>
-                                    Eum nostrum fugit numquam, voluptates veniam neque quibusdam
-                                    ullam aspernatur odio soluta, quisquam dolore animi mollitia a
-                                    omnis praesentium, expedita nobis!
+                                    Security is out first concern!<br></br>We ensure you recieve your sets and if anything unexpected happens, we will fix it.
                                 </p>
                             </div>
                         </div>
@@ -58,7 +56,7 @@ function Features() {
                         <div
                             className="block h-full rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                             <div className="flex justify-center">
-                                <div className="-mt-8 inline-block rounded-full bg-primary-100 p-4 text-primary shadow-md">
+                                <div className="-mt-8 inline-block rounded-full bg-primary-100 p-4 text-veryPeri  shadow-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2"
                                         stroke="currentColor" className="h-7 w-7">
                                         <path strokeLinecap="round" strokeLinejoin="round"
@@ -66,12 +64,10 @@ function Features() {
                                     </svg>
                                 </div>
                             </div>
-                            <div className="p-6">
+                            <div className={`${montserrat.className} p-6`}>
                                 <h5 className="mb-4 text-lg font-semibold">Extremely fast</h5>
                                 <p>
-                                    Enim cupiditate, minus nulla dolor cumque iure eveniet facere
-                                    ullam beatae hic voluptatibus dolores exercitationem? Facilis
-                                    debitis aspernatur amet nisi?
+                                    We try our best to deliver your sets as fast as we can.<br></br> Our support team can help you find sets you couldn't find here and set it all up for you!
                                 </p>
                             </div>
                         </div>

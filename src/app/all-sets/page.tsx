@@ -4,7 +4,6 @@ import { getSets } from "@utils/queries";
 import type { Metadata } from "next";
 import { setTypeArray } from "types";
 
-
 export default async function AllSets() {
     const allSets: setTypeArray | null = await getSets()
 

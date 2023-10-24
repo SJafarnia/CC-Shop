@@ -1,9 +1,9 @@
 import React from 'react'
-import CreditCard from '../modules/payment/CreditCard'
+import Crd from '../modules/payment/Crd'
 
 function PaymentTemplate() {
     return (
-        <CreditCard />
+        <Crd />
     )
 }
 

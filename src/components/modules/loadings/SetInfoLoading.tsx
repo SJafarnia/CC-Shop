@@ -2,14 +2,14 @@
 function SetInfoLoading() {
     return (
         <>
-            <div className='flex p-5 my-20'>
-                <div className='imagesection w-1/2'>
+            <div className='flex p-5 my-16 xs:flex-col sm:flex-row'>
+                <div className='imagesection sm:w-1/2'>
                     <div className='h-full'>
-                        <div className='w-full h-[435px] rounded-md animate-pulse bg-gray-200' />
+                        <div className='w-full max-h-[435px] rounded-md animate-pulse bg-gray-200' />
                     </div>
                 </div>
-                <div className='infoSection w-1/2'>
-                    <div className='mt-8 pl-10 flex justify-around flex-col h-full animate-pulse'>
+                <div className='infoSection sm:w-1/2'>
+                    <div className='mt-8 sm:pl-10 flex justify-around flex-col h-full animate-pulse'>
                         <div>
                             <div className='header mb-3 pl-1 text-4xl py-3 bg-gray-200'></div>
                             <div className='header mb-3 pl-1 text-4xl py-3 bg-gray-200'></div>

@@ -9,10 +9,29 @@ export function slugify(text) {
         .replace(/^-+|-+$/g, ''); // remove dashes from the start and end of the string
 }
 
-export function deslugify(slug) {
-    return slug
-        .replace(/-/g, ' ')
-        .replace(/(^|\s)\S/g, (match) => match.toUpperCase());
+// export function deslugify(slug) {
+//     return slug
+//         .replace(/-/g, ' ')
+//         .replace(/(^|\s)\S/g, (match) => match.toUpperCase());
+// }
+
+export function deslugify(str) {
+    // Split the string into an array of words
+    const words = str.split('-');
+
+    // Map over each word and capitalize the first letter (except "of")
+    const deslugifiedWords = words.map((word, index) => {
+        if (index === 0 || word.toLowerCase() !== 'of') {
+            return word.charAt(0).toUpperCase() + word.slice(1);
+        } else {
+            return word;
+        }
+    });
+
+    // Join the deslugified words into a string
+    const deslugifiedString = deslugifiedWords.join(' ');
+
+    return deslugifiedString;
 }
 
 export function truncateText(text, maxLength) {

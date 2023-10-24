@@ -1,3 +1,4 @@
+"use client"
 import { remCartItem, selectCartItems } from '@redux/features/CartItemsSlice'
 import Image from 'next/image'
 import Link from 'next/link';
@@ -6,18 +7,24 @@ import { useDispatch, useSelector } from 'react-redux'
 import { cartItemsType } from 'types';
 
 
-function CheckoutCart() {
-    const dispatch = useDispatch()
-    const cartState: cartItemsType | null = useSelector(selectCartItems)
+function CheckoutCart({ setState }: any) {
+    const dispatch = useDispatch();
+    const cartState: cartItemsType | null = useSelector(selectCartItems);
     const subTotal = cartState?.cartItems?.reduce((prev, cur) => {
-        return prev + (+cur.price)
-    }, 0)
+        return prev + (+cur.price);
+    }, 0);
+
+    const inputHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        const { name, value } = event.target;
+        setState(name, value)
+    }
+
     return (
         <div className='flex flex-col h-full justify-between mt-10'>
             <div className={`flex-col flex flex-grow`}>
                 {cartState?.cartItems && cartState.cartItems.map((item: any) => {
                     return (
-                        <div className="menu-items px-1 py-3 border-b border-b-veryPeri">
+                        <div className="menu-items px-1 py-3 border-b border-b-veryPeri" key={item.title}>
                             <div className={`flex p-4 w-auto list-none justify-stretch`}>
                                 <Link href={`/all-sets/${slugify(item.title)}`} className='img'>
                                     <Image src={item.img as string}
@@ -56,11 +63,8 @@ function CheckoutCart() {
                 </div>
                 <div className='p-4'>
                     <label htmlFor="message" className="block mb-2 text-left text-sm font-medium text-gray-900 ">Special instructions for seller</label>
-                    <textarea id="message" rows={4} className="block p-2.5 w-full text-sm outline-none text-gray-900 bg-gray-50 rounded-lg border border-veryPeri focus:ring-blue-500 focus:border-veryPeri" placeholder="Your steam id or link"></textarea>
+                    <textarea required id="message" name='steamId' onChange={inputHandler} rows={4} className="block p-2.5 w-full text-sm outline-none text-gray-900 bg-gray-50 rounded-lg border border-veryPeri focus:ring-blue-500 focus:border-veryPeri" placeholder="Your steam id or link"></textarea>
                 </div>
-            </div>
-            <div className='p-4'>
-                <button className='p-4 w-full rounded-md bg-veryPeri text-white'>Checkout</button>
             </div>
         </div>
     )

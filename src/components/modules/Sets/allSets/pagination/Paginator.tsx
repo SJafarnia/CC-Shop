@@ -36,7 +36,7 @@ export default function Paginator({ items, pageSize, currentPage, onPageChange }
                     </button>
                 </li>
                 {pages.map((page) => (
-                    <li>
+                    <li key={page}>
                         <button
                             className="relative block rounded bg-transparent px-3 py-1.5 text-base text-neutral-600 transition-all duration-300 hover:bg-veryPeri hover:text-white mx-1"
                             onClick={() => onPageChange(page)}

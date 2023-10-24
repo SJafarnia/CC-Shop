@@ -34,6 +34,8 @@ export const options: NextAuthOptions = {
                 }
                 catch (e) {
                     throw (JSON.stringify({ "err": e }))
+                } finally{
+                    prisma.$disconnect()
                 }
             },
 

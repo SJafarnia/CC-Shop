@@ -25,7 +25,7 @@ export default async function SearchResult({ data, q }: { data: setTypeArray, q:
         <div className="py-20">
             <div className="">
                 <h3 className="t text-4xl text-center mb-12">
-                    Search Results for "{q}"
+                    {`Search Results for "${q}"`}
                 </h3>
             </div>
             <div className="w w-2/3 mx-auto mb-5">

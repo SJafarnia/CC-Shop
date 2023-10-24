@@ -1,9 +1,8 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { signIn } from "next-auth/react"
 import { credentialsType } from "types"
-import { useRouter } from "next/navigation"
-
+import { useRouter, useSearchParams } from "next/navigation"
 
 function LoginForm() {
     const [credentials, setCredentials] = useState<credentialsType>({
@@ -13,6 +12,8 @@ function LoginForm() {
     const [isloading, setIsLoading] = useState<boolean>(false)
     const [err, setErr] = useState("")
     const router = useRouter()
+    const searchParams = useSearchParams();
+    const redirect = searchParams.get("redirect")
 
     const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target
@@ -33,7 +34,10 @@ function LoginForm() {
                     return
                 }
                 // router.replace("/dashboard")
-                window.location.href = "/dashboard"
+                if (!res?.error) {
+                    // window.location.href = redirect || "/dashboard"
+                    router.push(redirect || "/dashboard")
+                }
             }
             )
             .catch(e => console.error(e))
@@ -54,12 +58,8 @@ function LoginForm() {
                                     <div className="md:mx-6 md:p-12">
 
                                         <div className="text-center">
-                                            <img
-                                                className="mx-auto w-48"
-                                                src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                                                alt="logo" />
                                             <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">
-                                                We are The Lotus Team
+                                                Collector's Cache Shop
                                             </h4>
                                         </div>
 
@@ -129,7 +129,7 @@ function LoginForm() {
                                                 <a href="#!">Forgot password?</a>
                                             </div>
                                             <div className="flex items-center justify-between pb-6">
-                                                <p className="mb-0 mr-2">Don't have an account?</p>
+                                                <p className="mb-0 mr-2">{"Don't have an account?"}</p>
                                                 <button
                                                     onClick={() => router.push("/register#regform")}
                                                     type="button"

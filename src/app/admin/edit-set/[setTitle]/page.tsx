@@ -1,7 +1,7 @@
 import { slugify } from "@utils/textModifer"
 import prisma from '@utils/prisma'
 import EditSet from "@/components/modules/Sets/editSet/EditSet";
-import { getSet } from "@utils/queries";
+import { getSet, getSets } from "@utils/queries";
 import { notFound } from "next/navigation";
 
 export default async function page({ params }: { params: { setTitle: string } }) {
@@ -16,7 +16,7 @@ export default async function page({ params }: { params: { setTitle: string } })
 }
 
 export async function generateStaticParams() {
-    const sets = await prisma.heroSet.findMany()
+    const sets = await getSets()
     return sets.map((set: any) => ({
         setTitle: slugify(set.title),
     }))

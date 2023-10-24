@@ -32,7 +32,14 @@ const CartItemsSlice = createSlice({
             return {
                 ...state, cart: { ...state.cart, cartItems }
             }
-        }
+        },
+        remAllCartItems: (state) => {
+            Cookie.remove("cart")
+            Cookie.r
+            return {
+                cart: { cartItems: [] }
+            }
+        },
     },
 });
 
@@ -40,4 +47,4 @@ export default CartItemsSlice.reducer;
 
 export const selectCartItems = (store) => store.cartItems.cart;
 
-export const { addCartItem, remCartItem } = CartItemsSlice.actions;
+export const { addCartItem, remCartItem, remAllCartItems } = CartItemsSlice.actions;

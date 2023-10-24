@@ -18,6 +18,7 @@ model User {
   ProductComment ProductComment[]
   SteamAccount   SteamAccount?    @relation(fields: [steamId], references: [id])
   boughtItems    soldItem[]
+  Transaction    Transaction[]
 
   @@unique([id, email])
 }
@@ -40,6 +41,7 @@ model HeroSet {
   HeroImg        HeroImg[]
   category       Category         @relation(fields: [categoryId], references: [id])
   ProductComment ProductComment[]
+  soldItem       soldItem[]
 }
 
 model HeroImg {
@@ -50,13 +52,18 @@ model HeroImg {
 }
 
 model soldItem {
-  id            String   @id @default(uuid())
-  buyerId       String
-  buyerEmail    String
-  isDelivered   Boolean  @default(false)
-  dateSold      DateTime @default(now())
-  dateDelivered DateTime
-  buyer         User     @relation(fields: [buyerId, buyerEmail], references: [id, email])
+  id            String    @id @default(uuid())
+  // buyerId       String
+  buyerEmail    String?
+  buyerSteamId  String?
+  isDelivered   Boolean   @default(false)
+  dateSold      DateTime  @default(now())
+  dateDelivered DateTime?
+  buyer         User?     @relation(fields: [buyerEmail], references: [email], onDelete: SetNull)
+  order         Order     @relation(fields: [orderId], references: [id])
+  set           HeroSet   @relation(fields: [heroSetTitle], references: [title])
+  orderId       String
+  heroSetTitle  String
 }
 
 model ProductComment {
@@ -68,14 +75,28 @@ model ProductComment {
   set     HeroSet @relation(fields: [setId], references: [id])
 }
 
+model Order {
+  id          String       @id @default(uuid())
+  totalPrice  Int
+  soldItem    soldItem[]
+  Transaction Transaction?
+}
+
 model Transaction {
-  id String @id @default(uuid())
-  
+  id         String  @id @default(uuid())
+  amount     Int
+  cardNumber String
+  cardName   String
+  buyerEmail String?
+  cardType   String?
+  orderId    String  @unique
+  order      Order   @relation(fields: [orderId], references: [id])
+  buyer      User?   @relation(fields: [buyerEmail], references: [email], onDelete: SetNull)
 }
 
 model Category {
   id      String    @id @default(uuid())
-  title   String
+  title   String    
   HeroSet HeroSet[]
 }
 

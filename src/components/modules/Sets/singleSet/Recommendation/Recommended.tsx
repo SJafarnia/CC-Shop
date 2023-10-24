@@ -7,26 +7,43 @@ import { Pagination } from 'swiper/modules';
 import RecommendCard from './RecommendCard';
 import { SwiperNavButtons } from './SwiperButtons';
 import { setType, setTypeArray } from 'types';
+import { montserrat } from '@/app/fonts';
 
 
-function Recommended({ relatedPosts }: setTypeArray | any) {
+function Recommended({ relatedPosts, title, caption }: { relatedPosts: setTypeArray, title: string, caption: string }) {
 
     return (
-        <div className="text-center my-20">
+        <div className="text-center my-32">
             <div className="mb-10">
-                <h3 className="text text-3xl mb-6">Recommened for you</h3>
-                <span className="text-baseline text-lg">Choose other cool sets from various collections</span>
+                <h3 className="text text-4xl mb-6">{title}</h3>
+                <span className={`${montserrat.className} text-baseline text-lg`}>{caption}</span>
             </div>
-            <div className='flex items-center justify-center group '>
+            <div className='flex items-center justify-center group flex-wrap'>
 
                 <Swiper
                     slidesPerView={3}
                     spaceBetween={30}
+                    breakpoints={
+                        {
+                            // When window width is >= 640px
+                            320: {
+                                slidesPerView: 1,
+                            },
+                            // When window width is >= 768px
+                            640: {
+                                slidesPerView: 2,
+                            },
+                            1000: {
+                                slidesPerView: 3,
+                            }
+                        }
+                    }
                     pagination={{
                         clickable: true,
                     }}
                     modules={[Pagination]}
                     className=''
+                    touchRatio={0.5}
                     wrapperClass='items-stretch'
                 >
 
@@ -41,42 +58,7 @@ function Recommended({ relatedPosts }: setTypeArray | any) {
                             />
                         </SwiperSlide>
                     ))}
-                    {/* <SwiperSlide className=''>
-                        <RecommendCard
-                            src="https://tecdn.b-cdn.net/img/new/standard/city/041.webp"
-                            alt="Hollywood Sign on The Hill"
-                            hero="Legion Commander"
-                            setName="Bird of Prey Diretide Collector's Cache 2"
-                            price={5.00}
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide className=''>
-                        <RecommendCard
-                            src="https://tecdn.b-cdn.net/img/new/standard/city/042.webp"
-                            alt="Palm Springs Road"
-                            hero="LC"
-                            setName="Bird of Prey Diretide Collector's Cache 2"
-                            price={15.00}
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <RecommendCard
-                            src="https://tecdn.b-cdn.net/img/new/standard/city/044.webp"
-                            alt="Skyscrapers"
-                            hero="LC"
-                            setName="Bird of Prey Diretide Collector's Cache 2"
-                            price={20.00}
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <RecommendCard
-                            src="https://tecdn.b-cdn.net/img/new/standard/city/043.webp"
-                            alt="Los Angeles Skyscrapers"
-                            hero="LC"
-                            setName="Bird of Prey Diretide Collector's Cache 2"
-                            price={8.00}
-                        />
-                    </SwiperSlide> */}
+
                     <SwiperNavButtons />
                 </Swiper>
             </div>

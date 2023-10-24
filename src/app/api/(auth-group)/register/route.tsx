@@ -36,8 +36,11 @@ export async function POST(request: NextRequest) {
                 email: email
             }
         })
-        if (isUser) return NextResponse.json({ error: true, message: "User Already Exists!" }, { status: 409 })
 
+        if (isUser) {
+            prisma.$disconnect()
+            return NextResponse.json({ error: true, message: "User Already Exists!" }, { status: 409 })
+        }
 
         const user = await prisma.user.create({
             data: {
@@ -47,6 +50,7 @@ export async function POST(request: NextRequest) {
             }
         })
 
+        prisma.$disconnect()
         const { email: userEmail, accessLevel } = user
         return NextResponse.json({ message: `User ${userEmail} with Access Level of ${accessLevel}} has been created.`, error: false }, { status: 201 })
     }

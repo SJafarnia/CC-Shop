@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 :focus {
     /* outline: ; */
     outline-width: 1px;
@@ -57,4 +63,25 @@
 
 .popup-menu-open {
     overflow: hidden;
+}
+
+
+.diagonal {
+    --skew-angle: -5deg;
+    --background: linear-gradient(45deg,
+            #12c2e9,
+            #c471ed,
+            #f64f59);
+
+    position: relative;
+    isolation: isolate;
+}
+
+.diagonal::after {
+    content: '';
+    background: var(--background);
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    transform: skewY(var(--skew-angle));
 }

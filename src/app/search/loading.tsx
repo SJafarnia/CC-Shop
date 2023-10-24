@@ -1,16 +1,6 @@
-"use client"
-import { useEffect } from "react"
-import { setLoadingState } from "@redux/features/SearchLoadingSlice";
-import { useDispatch } from "react-redux";
 import SetListLoading from "@/components/modules/loadings/SetListLoading";
 
 function loading() {
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        // dispatch(setLoadingState(false))
-    }, [])
-
     return (
         <div className="py-20">
             <div className="">

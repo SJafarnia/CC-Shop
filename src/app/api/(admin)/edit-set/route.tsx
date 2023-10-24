@@ -1,9 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server'
-// import { uploadImage } from "@utils/cloudinary"
-import { v2 as cloudinary } from 'cloudinary';
 import prisma from '@utils/prisma';
+import { getServerSession } from "next-auth/next"
+import { options } from "@app/api/(auth-group)/auth/[...nextauth]/options"
 
 export async function POST(request: NextRequest) {
+    const session = await getServerSession(options)
+
+    const user = await prisma.user.findUnique({
+        where: {
+            email: session?.user?.email || ""
+        }
+    })
+
+    if (user?.accessLevel !== "ADMIN") {
+        return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
+    }
+
     const requestData = await request.formData()
 
     const values: any = {};

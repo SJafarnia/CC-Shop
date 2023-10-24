@@ -1,9 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server'
-// import { uploadImage } from "@utils/cloudinary"
+import { getServerSession } from "next-auth/next"
+import { options } from "@app/api/(auth-group)/auth/[...nextauth]/options"
 import { v2 as cloudinary } from 'cloudinary';
 import prisma from '@utils/prisma';
 
 export async function POST(request: NextRequest) {
+    const session = await getServerSession(options)
+
+    const user = await prisma.user.findUnique({
+        where: {
+            email: session?.user?.email || ""
+        }
+    })
+
+    if (user?.accessLevel !== "ADMIN") {
+        return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
+    }
     const requestData = await request.formData()
     const file: File | null = requestData.get("file") as unknown as File
 
@@ -86,7 +98,7 @@ export async function POST(request: NextRequest) {
         // return NextResponse.json({ imgLink: res.secure_url })
         // console.log(data)
 
-        return NextResponse.json({ success: true }, {status: 201})
+        return NextResponse.json({ success: true }, { status: 201 })
     }
-    return NextResponse.json({message: "smth went wrong" }, {status: 500})
+    return NextResponse.json({ message: "smth went wrong" }, { status: 500 })
 }

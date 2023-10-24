@@ -13,25 +13,25 @@ type popOverType = {
 
 
 export default function SearchBar({ popOver }: popOverType) {
-    const router = useRouter()
-    const dispatch = useDispatch()
+    const router = useRouter();
+    const dispatch = useDispatch();
     const searchParams = useSearchParams();
     const urlParam = searchParams.get('q');
-    const [q, setQ] = useState<string>(urlParam as string || "")
-    const loadingState = useSelector(selectSearchLoadingSlice)
+    const [q, setQ] = useState<string>(urlParam as string || "");
+    const loadingState = useSelector(selectSearchLoadingSlice);
 
     useEffect(() => {
         if (urlParam && urlParam != q) setQ(urlParam)
-    }, [urlParam])
+    }, [urlParam]);
 
     const searchHandler = async (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (q && event.key === 'Enter' && q !== urlParam) {
             // performSearch();
             if (popOver) {
-                popOver()
+                popOver();
             }
-            dispatch(setLoadingState(true))
-            router.push(`/search?q=${q}`)
+            dispatch(setLoadingState(true));
+            router.push(`/search?q=${q}`);
         }
     }
 
@@ -39,13 +39,13 @@ export default function SearchBar({ popOver }: popOverType) {
         if (q && q !== urlParam) {
             // performSearch();
             if (popOver) {
-                popOver()
+                popOver();
             }
-            dispatch(setLoadingState(true))
-            router.push(`/search?q=${q}`)
+            dispatch(setLoadingState(true));
+            router.push(`/search?q=${q}`);
         }
     }
-    
+
     return (
         <div className="searchbtn relative w-full text-black">
             <input className="rounded py-4 pl-3 pr-8 outline-none w-full bg-[#f2ecff] hover:bg-[#d8c6ff]" autoFocus={popOver ? true : false} onKeyDown={searchHandler} placeholder="Looking For Something?" value={q} onChange={(e) => setQ(e.target.value)}></input>

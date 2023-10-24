@@ -26,7 +26,7 @@ export default function ListGrid({ data }: any) {
 
     return (
         <>
-            <div className="grid xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className="grid xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {postsToShow?.map((item: setType) => {
                     return (
                         <Fragment key={item.id}>

@@ -3,7 +3,7 @@ import { options } from "@app/api/(auth-group)/auth/[...nextauth]/options"
 import { notFound } from 'next/navigation'
 import prisma from "@utils/prisma";
 
-let user = {}
+export const dynamic = "force-dynamic"
 
 export default async function AdminLayout({
     children

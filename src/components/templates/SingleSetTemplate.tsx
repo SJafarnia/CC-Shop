@@ -6,7 +6,6 @@ function SingleSetTemplate(props: setType) {
 
     return (
         // <></>
-
         <HeroSet {...props}/>
         // <HeroSet {...props} />
     )

@@ -16,7 +16,7 @@ export default function Footer() {
                         <Image src="/logo/logo_200x200__2_-removebg-preview.png" className="logo mb-3" alt="logo" width={80} height={60}></Image>
                         <div>
                             <p className="mb-2">
-                                {" Collector's Cache Gift Shop has been in the business since 2016 with the goal of providing dota 2 players the chance of acquiring exclusive cache sets they've missed from the international battlepass, with ease."}
+                                {" Collector's Cache Shop serves with the goal of providing dota 2 players the chance of acquiring exclusive cache sets they've missed, with ease."}
                             </p>
                         </div>
                     </div>
@@ -42,7 +42,7 @@ export default function Footer() {
                         className="mb-6"
                     >Copyright © 2023 <Link href={"/"} className="text-livingCoral">{"Collector's Cache Shop"}</Link> | All Rights Reserved
                     </div>
-                    <p className="text-sm text-left">
+                    <p className="text-sm text-left mr-2">
                         Disclaimer: <Link href={"/"} className="text-livingCoral">{"Collector's Cache Shop"}</Link>  is not owned by Valve, or affiliated with Valve in any way. Dota 2 is a registered trademark of Valve Corporation. Game content and materials are trademarks and copyrights of their respective publisher and its licensors. No copyright infridgement intended.
                     </p>
                 </div>
