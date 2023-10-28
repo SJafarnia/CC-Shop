@@ -1,5 +1,4 @@
 "use client"
-import CreditCard from 'predictalab-react-credit-card'
 import { useState, useEffect, FormEvent } from "react"
 import CheckoutCart from './CheckoutCart'
 import { useSession } from 'next-auth/react'
@@ -7,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { selectCartItems, remAllCartItems } from '@redux/features/CartItemsSlice'
 import { useRouter } from 'next/navigation'
 import { selectPaymentLoadingSlice, setPaymentLoadingState } from '@redux/features/PaymenrLoadingSlice'
-import Cards from "react-credit-cards"
+import Cards from 'react-credit-cards-2'
 import 'react-credit-cards/es/styles-compiled.css'
 
 type ccType = {
