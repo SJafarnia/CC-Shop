@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { selectCartItems, remAllCartItems } from '@redux/features/CartItemsSlice'
 import { useRouter } from 'next/navigation'
 import { selectPaymentLoadingSlice, setPaymentLoadingState } from '@redux/features/PaymenrLoadingSlice'
-import Cards from 'react-credit-cards-2'
+import Cards, { Focused } from 'react-credit-cards-2'
 import 'react-credit-cards-2/dist/es/styles-compiled.css'
 
 type ccType = {
@@ -110,7 +110,7 @@ function Crd(): JSX.Element {
                         <Cards
                             cvc={formData.cvc}
                             expiry={formData.expiry}
-                            focused={focus}
+                            focused={focus as Focused}
                             name={formData.name}
                             number={formData.number}
                             issuer={formData.type}
