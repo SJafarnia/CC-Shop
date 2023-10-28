@@ -2,6 +2,7 @@ import { deslugify } from "@utils/textModifer"
 import { notFound } from 'next/navigation';
 import SearchTemplate from '@/components/templates/SearchTemplate';
 import { findSets } from "@utils/queries";
+import { Metadata } from "next/types"
 
 export const dynamic = "force-dynamic"
 
@@ -19,6 +20,10 @@ async function SearchPage({
     return (
         <SearchTemplate data={data} q={filteredQ} />
     )
+}
+
+export const metadata: Metadata = {
+    title: "Search - CC Shop"
 }
 
 export default SearchPage

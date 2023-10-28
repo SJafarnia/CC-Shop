@@ -24,7 +24,7 @@ function Features() {
                                 <h5 className="mb-4 text-lg font-semibold">Support 24/7</h5>
                                 <p>
                                     Having trouble? Feel free to contact support.<br></br>
-                                    If there are sets you clouldn't find here, Our team may be able to get you what you want!
+                                   {" If there are sets you clouldn't find here, Our team may be able to get you what you want!"}
 
                                 </p>
                             </div>
@@ -67,7 +67,7 @@ function Features() {
                             <div className={`${montserrat.className} p-6`}>
                                 <h5 className="mb-4 text-lg font-semibold">Extremely fast</h5>
                                 <p>
-                                    We try our best to deliver your sets as fast as we can.<br></br> Our support team can help you find sets you couldn't find here and set it all up for you!
+                                    We try our best to deliver your sets as fast as we can.<br></br> {"Our support team can help you find sets you couldn't find here and set it all up for you!"}
                                 </p>
                             </div>
                         </div>

@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation'
 import prisma from "@utils/prisma"
 import { getAllOrders, getUserOrders } from "@utils/queries"
 import Dashboard from "@/components/modules/dashboard/Dashboard";
+import { Metadata } from "next/types"
 
 async function page() {
     const session = await getServerSession(options)
@@ -24,6 +25,10 @@ async function page() {
     return (
         <Dashboard userAccess={userData.accessLevel} orders={orders} />
     )
+}
+
+export const metadata: Metadata = {
+    title: "Dashboard - CC Shop"
 }
 
 export default page

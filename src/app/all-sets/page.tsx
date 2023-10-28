@@ -17,4 +17,5 @@ export default async function AllSets() {
 
 export const metadata: Metadata = {
     title: 'All Sets',
+    description: "Dota 2 Collector's Cache Shop",
 }

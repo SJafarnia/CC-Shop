@@ -13,7 +13,10 @@ export default function ListGrid({ data }: any) {
     const pageSize = 6;
 
     useEffect(() => {
-        dispatch(setLoadingState(false))
+        const f = () => {
+            dispatch(setLoadingState(false))
+        }
+        if (data) f()
     }, [data])
 
     const onPageChange = (page: number) => {

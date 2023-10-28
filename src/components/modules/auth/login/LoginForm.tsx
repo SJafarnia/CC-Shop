@@ -59,7 +59,7 @@ function LoginForm() {
 
                                         <div className="text-center">
                                             <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">
-                                                Collector's Cache Shop
+                                                {"Collector's Cache Shop"}
                                             </h4>
                                         </div>
 

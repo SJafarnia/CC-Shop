@@ -15,10 +15,27 @@ async function singleSet({ params }: { params: { setTitle: string } }) {
     if (!set) {
         return notFound()
     }
+
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: set.title,
+        description: `${set.hero} ${set.category?.title}`,
+        "brand": {
+            "@type": "Brand",
+            "name": "CC Shop"
+        },
+        // "url": "http://example.com/path/to/product-page"
+    }
+
     return (
         <>
             <Breadcrumb allSets={true} singleSet={set.title} />
             <SingleSetTemplate {...set} />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
         </>
     )
 }
@@ -35,6 +52,7 @@ export async function generateMetadata({ params }: { params: { setTitle: string 
 ): Promise<Metadata> {
     return {
         title: deslugify(params.setTitle),
+        description: "Dota 2 Collector's Cache Shop",
     }
 }
 
