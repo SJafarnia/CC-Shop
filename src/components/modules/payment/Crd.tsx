@@ -7,7 +7,7 @@ import { selectCartItems, remAllCartItems } from '@redux/features/CartItemsSlice
 import { useRouter } from 'next/navigation'
 import { selectPaymentLoadingSlice, setPaymentLoadingState } from '@redux/features/PaymenrLoadingSlice'
 import Cards from 'react-credit-cards-2'
-import 'react-credit-cards/es/styles-compiled.css'
+import 'react-credit-cards-2/dist/es/styles-compiled.css'
 
 type ccType = {
     cvc: string,

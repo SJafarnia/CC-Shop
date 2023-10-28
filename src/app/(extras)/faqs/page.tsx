@@ -15,10 +15,8 @@ function page() {
     )
 }
 
-
 export const metadata: Metadata = {
     title: "FAQs - CC Shop"
 }
-
 
 export default page
