@@ -10,7 +10,6 @@
     "test": "jest",
     "test:watch": "jest --watchAll",
     "tailwind": "npx tailwindcss -i ./src/app/index.css -o ./src/app/globals.css --watch",
-    "prismaServer": "nodemon ./utils/prisma.ts"
   },
   "dependencies": {
     "@cloudinary/react": "^1.11.2",
