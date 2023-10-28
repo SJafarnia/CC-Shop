@@ -1,7 +1,7 @@
 "use client"
 import { useEffect } from "react";
 
-function FaqsTemplate() {
+const FaqsTemplate = () => {
     useEffect(() => {
         const init = async () => {
             const { Collapse, initTE } = await import("tw-elements");
@@ -11,7 +11,6 @@ function FaqsTemplate() {
     }, []);
 
     return (
-
         <div className="container my-24 mx-auto md:px-6 xl:px-24">
 
             <section className="mb-32">
