@@ -1,11 +1,11 @@
-import { slugify } from "@utils/textModifer"
+import { deslugify, slugify } from "@utils/textModifer"
 import prisma from '@utils/prisma'
 import EditSet from "@/components/modules/Sets/editSet/EditSet";
 import { getSet, getSets } from "@utils/queries";
 import { notFound } from "next/navigation";
 
 export default async function page({ params }: { params: { setTitle: string } }) {
-    const set = await getSet(params.setTitle)
+    const set = await getSet(deslugify(params.setTitle))
     if (!set) {
         return notFound()
     }
