@@ -9,7 +9,7 @@
     "lint": "next lint",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "tailwind": "npx tailwindcss -i ./src/app/index.css -o ./src/app/globals.css --watch",
+    "tailwind": "npx tailwindcss -i ./src/app/index.css -o ./src/app/globals.css --watch"
   },
   "dependencies": {
     "@cloudinary/react": "^1.11.2",
