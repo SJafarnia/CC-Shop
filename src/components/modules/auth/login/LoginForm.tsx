@@ -46,7 +46,7 @@ function LoginForm() {
     }
 
     return (
-        <section className="gradient-form h-full my-8" id="loginform">
+        <section className="gradient-form h-full my-32" id="loginform">
             <div className="container h-full p-5">
                 <div
                     className="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800">
