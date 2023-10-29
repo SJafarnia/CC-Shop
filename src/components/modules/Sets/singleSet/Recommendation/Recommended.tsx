@@ -14,7 +14,7 @@ function Recommended({ relatedPosts, title, caption }: { relatedPosts: setTypeAr
 
     return (
         <div className="text-center my-32">
-            <div className="mb-10">
+            <div className="mb-10 text-veryPeri">
                 <h3 className="text text-4xl mb-6">{title}</h3>
                 <span className={`${montserrat.className} text-baseline text-lg`}>{caption}</span>
             </div>
@@ -43,7 +43,7 @@ function Recommended({ relatedPosts, title, caption }: { relatedPosts: setTypeAr
                     }}
                     modules={[Pagination]}
                     className=''
-                    touchRatio={0.5}
+                    touchRatio={0.8}
                     wrapperClass='items-stretch'
                 >
 

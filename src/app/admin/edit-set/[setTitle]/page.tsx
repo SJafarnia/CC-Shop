@@ -1,5 +1,4 @@
 import { deslugify, slugify } from "@utils/textModifer"
-import prisma from '@utils/prisma'
 import EditSet from "@/components/modules/Sets/editSet/EditSet";
 import { getSet, getSets } from "@utils/queries";
 import { notFound } from "next/navigation";
