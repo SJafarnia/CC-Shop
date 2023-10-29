@@ -71,7 +71,7 @@ function RegisterPage() {
             }
         })
         const res = await req.json()
-        
+
         // set loading to false
         setIsLoading((prev => !prev))
 
@@ -106,10 +106,10 @@ function RegisterPage() {
             {created ? <Toast /> : ""}
             <div className="container h-full p-5">
                 <div
-                    className="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
+                    className="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800">
                     <div className="w-full">
                         <div
-                            className="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
+                            className="block rounded-lg bg-white shadow-lg">
                             <div className="g-0 lg:flex lg:flex-wrap justify-center">
                                 <div className="px-4 md:px-0 lg:w-6/12">
                                     <div className="md:mx-6 md:p-12">
@@ -132,14 +132,14 @@ function RegisterPage() {
                                                     disabled={isloading ? true : undefined}
                                                     type="email"
                                                     onChange={inputHandler}
-                                                    className="peer border-solid focus:border-2 transition-color duration-0 focus:border-veryPeri shadow-sm border block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none ease-linear focus:placeholder:opacity-100 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                                    className="peer border-solid focus:border-2 transition-color duration-0 focus:border-veryPeri shadow-sm border block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none ease-linear focus:placeholder:opacity-100 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                                     id="emailInput"
                                                     autoComplete="username"
                                                     name="email"
                                                 />
                                                 <label
                                                     htmlFor="emailInput"
-                                                    className={`${credentials.email ? "-translate-y-[0.9rem] scale-[0.7]" : ""} bg-white px-2 pt-0 pointer-events-none absolute left-1 top-1 mb-0 max-w-[90%] truncate leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.7] peer-focus:text-primary-600 dark:text-neutral-200 dark:peer-focus:text-primary`}
+                                                    className={`${credentials.email ? "-translate-y-[0.9rem] scale-[0.7]" : ""} bg-white px-2 pt-0 pointer-events-none absolute left-1 top-1 mb-0 max-w-[90%] truncate leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.7] peer-focus:text-primary-600`}
                                                 >Email address
                                                 </label>
                                             </div>
@@ -152,12 +152,12 @@ function RegisterPage() {
                                                     onChange={inputHandler}
                                                     name="password"
                                                     autoComplete="current-password"
-                                                    className="peer border-solid focus:border-2 transition-color duration-0 focus:border-veryPeri shadow-sm border block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none ease-linear focus:placeholder:opacity-100  motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                                    className="peer border-solid focus:border-2 transition-color duration-0 focus:border-veryPeri shadow-sm border block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none ease-linear focus:placeholder:opacity-100  motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                                     id="passwordInput"
                                                 />
                                                 <label
                                                     htmlFor="passwordInput"
-                                                    className={`${credentials.password ? "-translate-y-[0.9rem] scale-[0.7]" : ""} bg-white px-2 pt-0 pointer-events-none absolute left-1 top-1 mb-0 max-w-[90%] truncate leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.7] peer-focus:text-primary-600 dark:text-neutral-200 dark:peer-focus:text-primary`}
+                                                    className={`${credentials.password ? "-translate-y-[0.9rem] scale-[0.7]" : ""} bg-white px-2 pt-0 pointer-events-none absolute left-1 top-1 mb-0 max-w-[90%] truncate leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.7] peer-focus:text-primary-600`}
                                                 >Password
                                                 </label>
                                             </div>
@@ -196,7 +196,7 @@ function RegisterPage() {
                                                 <button
                                                     onClick={() => router.push("/login#loginform")}
                                                     type="button"
-                                                    className="inline-block rounded border-2 border-danger px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-danger-600 focus:border-danger-600 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+                                                    className="inline-block rounded border-2 border-danger px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-danger-600 focus:border-danger-600 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700"
                                                     data-te-ripple-init
                                                     data-te-ripple-color="light">
                                                     Login

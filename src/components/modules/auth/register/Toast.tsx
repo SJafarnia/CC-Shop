@@ -3,7 +3,7 @@ import React from 'react'
 function Toast() {
     return (
         <div
-            className="pointer-events-auto mx-auto hidden w-96 max-w-full rounded-lg bg-white bg-clip-padding text-sm shadow-lg shadow-black/5 data-[te-toast-show]:block data-[te-toast-hide]:hidden dark:bg-neutral-600"
+            className="pointer-events-auto mx-auto hidden w-96 max-w-full rounded-lg bg-white bg-clip-padding text-sm shadow-lg shadow-black/5 data-[te-toast-show]:block data-[te-toast-hide]:hidden"
             id="static-example"
             role="alert"
             aria-live="assertive"
@@ -12,8 +12,8 @@ function Toast() {
             data-te-toast-init
             data-te-toast-show>
             <div
-                className="flex items-center justify-between rounded-t-lg border-b-2 border-neutral-100 border-opacity-100 bg-white bg-clip-padding px-4 pb-2 pt-2.5 dark:border-opacity-50 dark:bg-neutral-600">
-                <p className="font-bold text-neutral-500 dark:text-neutral-200">
+                className="flex items-center justify-between rounded-t-lg border-b-2 border-neutral-100 border-opacity-100 bg-white bg-clip-padding px-4 pb-2 pt-2.5">
+                <p className="font-bold text-neutral-500">
                     SUCCESS!
                 </p>
                 <div className="flex items-center">
@@ -42,7 +42,7 @@ function Toast() {
                 </div>
             </div>
             <div
-                className="break-words rounded-b-lg bg-white px-4 py-4 text-neutral-700 dark:bg-neutral-600 dark:text-neutral-200">
+                className="break-words rounded-b-lg bg-white px-4 py-4 text-neutral-700">
                 User Created Successfully!
             </div>
         </div>

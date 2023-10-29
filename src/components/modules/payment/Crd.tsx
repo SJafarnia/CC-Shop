@@ -121,7 +121,7 @@ function Crd(): JSX.Element {
                                     <div className="relative">
                                         <label
                                             htmlFor="number"
-                                            className={`${formData.number ? "-translate-y-[1rem] scale-[0.7]" : ""} bg-white px-2 pt-0 pointer-events-none absolute left-1 top-1 mb-0 max-w-[90%] truncate leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.7] peer-focus:text-primary-600 dark:text-neutral-200 dark:peer-focus:text-primary`}
+                                            className={`${formData.number ? "-translate-y-[1rem] scale-[0.7]" : ""} bg-white px-2 pt-0 pointer-events-none absolute left-1 top-1 mb-0 max-w-[90%] truncate leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.7] peer-focus:text-primary-600 `}
                                         >Card Number
                                         </label>
                                         <input
@@ -131,7 +131,7 @@ function Crd(): JSX.Element {
                                             required
                                             pattern="[0-9]*"
                                             title="Please enter digits only."
-                                            className="peer border-solid focus:border-2 transition-color duration-0 focus:border-veryPeri shadow-sm border block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none ease-linear focus:placeholder:opacity-100 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                            className="peer border-solid focus:border-2 transition-color duration-0 focus:border-veryPeri shadow-sm border block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none ease-linear focus:placeholder:opacity-100 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                             value={formData.number}
                                             name="number"
                                             onChange={handleInputChange}
@@ -144,7 +144,7 @@ function Crd(): JSX.Element {
                                     <div className="relative">
                                         <label
                                             htmlFor="name"
-                                            className={`${formData.name ? "-translate-y-[1rem] scale-[0.7]" : ""} bg-white px-2 pt-0 pointer-events-none absolute left-1 top-1 mb-0 max-w-[90%] truncate leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.7] peer-focus:text-primary-600 dark:text-neutral-200 dark:peer-focus:text-primary`}
+                                            className={`${formData.name ? "-translate-y-[1rem] scale-[0.7]" : ""} bg-white px-2 pt-0 pointer-events-none absolute left-1 top-1 mb-0 max-w-[90%] truncate leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.7] peer-focus:text-primary-600 `}
                                         >Card Name
                                         </label>
                                         <input
@@ -154,7 +154,7 @@ function Crd(): JSX.Element {
                                             required
                                             pattern="[a-zA-Z]*"
                                             title="Please enter letters only."
-                                            className="peer border-solid focus:border-2 transition-color duration-0 focus:border-veryPeri shadow-sm border block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none ease-linear focus:placeholder:opacity-100 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                            className="peer border-solid focus:border-2 transition-color duration-0 focus:border-veryPeri shadow-sm border block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none ease-linear focus:placeholder:opacity-100 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                             value={formData.name}
                                             name="name"
                                             onChange={handleInputChange}
@@ -167,7 +167,7 @@ function Crd(): JSX.Element {
                                 <div className="w-1/3 relative">
                                     <label
                                         htmlFor="expiry"
-                                        className={`${formData.expiry ? "-translate-y-[1rem] scale-[0.7]" : ""} bg-white px-2 pt-0 pointer-events-none absolute left-1 top-1 mb-0 max-w-[90%] truncate leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.7] peer-focus:text-primary-600 dark:text-neutral-200 dark:peer-focus:text-primary`}
+                                        className={`${formData.expiry ? "-translate-y-[1rem] scale-[0.7]" : ""} bg-white px-2 pt-0 pointer-events-none absolute left-1 top-1 mb-0 max-w-[90%] truncate leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.7] peer-focus:text-primary-600 `}
                                     >Expiration Date
                                     </label>
                                     <input
@@ -176,7 +176,7 @@ function Crd(): JSX.Element {
                                         id="expiry"
                                         maxLength={5}
                                         required
-                                        className="peer border-solid focus:border-2 transition-color duration-0 focus:border-veryPeri shadow-sm border block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none ease-linear focus:placeholder:opacity-100 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                        className="peer border-solid focus:border-2 transition-color duration-0 focus:border-veryPeri shadow-sm border block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none ease-linear focus:placeholder:opacity-100 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                         value={formData.expiry}
                                         onChange={handleInputChange}
                                         onFocus={(e) => SetFocus(e.target.name)}
@@ -185,7 +185,7 @@ function Crd(): JSX.Element {
                                 <div className="w-1/3 relative">
                                     <label
                                         htmlFor="cvc"
-                                        className={`${formData.cvc ? "-translate-y-[1rem] scale-[0.7]" : ""} bg-white px-2 pt-0 pointer-events-none absolute left-1 top-1 mb-0 max-w-[90%] truncate leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.7] peer-focus:text-primary-600 dark:text-neutral-200 dark:peer-focus:text-primary`}
+                                        className={`${formData.cvc ? "-translate-y-[1rem] scale-[0.7]" : ""} bg-white px-2 pt-0 pointer-events-none absolute left-1 top-1 mb-0 max-w-[90%] truncate leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.7] peer-focus:text-primary-600 `}
                                     >CVC
                                     </label>
                                     <input
@@ -196,7 +196,7 @@ function Crd(): JSX.Element {
                                         title="Please enter digits only."
                                         required
                                         maxLength={5}
-                                        className="peer border-solid focus:border-2 transition-color duration-0 focus:border-veryPeri shadow-sm border block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none ease-linear focus:placeholder:opacity-100 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                        className="peer border-solid focus:border-2 transition-color duration-0 focus:border-veryPeri shadow-sm border block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none ease-linear focus:placeholder:opacity-100 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                         value={formData.cvc}
                                         onChange={handleInputChange}
                                         onFocus={(e) => SetFocus("cvc")}
