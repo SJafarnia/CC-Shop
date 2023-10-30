@@ -120,7 +120,7 @@ function RegisterPage() {
                                                 src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
                                                 alt="logo" />
                                             <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">
-                                                CC SHop
+                                                CC Shop
                                             </h4>
                                         </div>
 
