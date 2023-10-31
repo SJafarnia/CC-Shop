@@ -118,7 +118,7 @@ function Cart({ isMobile }: { isMobile: boolean }) {
                             <div className='p-4'>
                                 {
                                     cartState?.cartItems?.length ?
-                                        <Link href={'/payment'} onClick={() => setshowCart("translate-x-[630px]")}>
+                                        <Link href={'/payment'} onClick={() => setshowCart("-translate-x-[900px]")}>
                                             <p className='p-4 w-full rounded-md bg-veryPeri text-white'>Checkout</p>
                                         </Link> : null
                                 }
