@@ -6320,15 +6320,6 @@ input::-webkit-inner-spin-button {
     -moz-column-gap: 3rem;
          column-gap: 3rem;
   }
-
-  .lg\:rounded-r-lg {
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-  }
-
-  .lg\:rounded-bl-none {
-    border-bottom-left-radius: 0px;
-  }
 }
 
 @media (min-width: 1280px) {

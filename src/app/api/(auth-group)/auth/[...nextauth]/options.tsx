@@ -25,7 +25,7 @@ export const options: NextAuthOptions = {
                         }
                     })
                     if (!User) {
-                        throw new Error("nonono")
+                        throw new Error("User not found")
                         // return null
                     }
                     else {

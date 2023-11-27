@@ -64,7 +64,7 @@ function LoginForm() {
                                         </div>
 
                                         <form onSubmit={loginHandler}>
-                                            <p className="mb-5">Login To Your Account</p>
+                                            <p className="mb-5">Login to your account</p>
                                             <div className="relative mb-4">
                                                 <input
                                                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"

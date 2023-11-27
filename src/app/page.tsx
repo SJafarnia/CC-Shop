@@ -8,5 +8,6 @@ export default function Home() {
 }
 
 export const metadata: Metadata = {
-  title: "CC Shop"
+  title: "CC Shop",
+  // icons: '/favicon.co',
 }

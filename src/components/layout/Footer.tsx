@@ -13,7 +13,7 @@ export default function Footer() {
                 <div className="footer-info mx-6 mt-4 flex md:w-2/5 ">
                     <div>
                         <h3 className="p-1 mb-6 text-xl">About Us</h3>
-                        <Image src="/logo/logo_200x200__2_-removebg-preview.png" className="logo mb-3" alt="logo" width={80} height={60}></Image>
+                        <Image src="/logo/Adobe_Express_20231127_1908240_1.png" className="logo mb-3" alt="logo" width={180} height={150}></Image>
                         <div>
                             <p className="mb-2">
                                 {" Collector's Cache Shop serves with the goal of providing dota 2 players the chance of acquiring exclusive cache sets they've missed, with ease."}
@@ -28,7 +28,7 @@ export default function Footer() {
                 </div>
 
                 <div className="navutils flex md:w-1/3 border-t-[1px] md:border-t-0 justify-around items-center flex-col">
-                    <Image src="/logo/logo_200x200__2_-removebg-preview.png" className="logo my-4" alt="logo" width={180} height={150}></Image>
+                    <Image src="/logo/Adobe_Express_20231127_1908240_1.png" className="logo my-4" alt="logo" width={180} height={150}></Image>
                     <SearchBar />
                     <div className="socials text-white">
                         <Socials />

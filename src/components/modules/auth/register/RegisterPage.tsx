@@ -125,7 +125,7 @@ function RegisterPage() {
                                         </div>
 
                                         <form onSubmit={registerHandler} noValidate >
-                                            <p className="mb-4">Create Your Account</p>
+                                            <p className="mb-4">Create an account</p>
                                             <div className="relative mb-4">
                                                 <input
                                                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
