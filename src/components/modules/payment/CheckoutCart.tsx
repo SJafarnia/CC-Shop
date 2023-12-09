@@ -30,7 +30,7 @@ function CheckoutCart({ setState }: any) {
                                     <Image src={item.img as string}
                                         height={85}
                                         width={97}
-                                        className='rounded-md h-[85px] ml-2'
+                                        className='rounded-md animate-fadeOut h-[85px] ml-2'
                                         alt='order-picture'
                                     >
                                     </Image>

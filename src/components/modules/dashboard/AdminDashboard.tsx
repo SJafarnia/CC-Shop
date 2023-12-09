@@ -70,7 +70,7 @@ function AdminDashboard({ ordersData }: { ordersData: soldItemType }) {
                                             <Image src={item.set.HeroImg[0].link}
                                                 height={125}
                                                 width={125}
-                                                className='rounded-md h-[120px] p-1'
+                                                className='rounded-md animate-fadeOut h-[120px] p-1'
                                                 alt='order-picture'
                                             >
                                             </Image>

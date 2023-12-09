@@ -23,8 +23,8 @@ export default async function HomeTemplate() {
                 <span className="hero-grid-1 my-auto p-4">
                     Source for out of market<span className="text-livingCoral">{" Collector's Cache"}</span>
                 </span>
-                <Image className="hero-grid-2 md:my-2 mx-auto rounded-md w-[666.67px] max-h-[374.63px]" src="/wallpapers/1291021.jpg" width={666.67} height={374.63} alt="collector's chache"></Image>
-                <Image className="hero-grid-3 md:my-2 mx-auto rounded-md w-[666.67px] max-h-[374.63px]" src="/wallpapers/3221051.jpg" width={666.67} height={374.63} alt="collector's chache"></Image>
+                <Image className="hero-grid-2 animate-fadeOut md:my-2 mx-auto rounded-md w-[666.67px] max-h-[374.63px]" src="/wallpapers/1291021.jpg" width={666.67} height={374.63} alt="collector's chache"></Image>
+                <Image className="hero-grid-3 animate-fadeOut md:my-2 mx-auto rounded-md w-[666.67px] max-h-[374.63px]" src="/wallpapers/3221051.jpg" width={666.67} height={374.63} alt="collector's chache"></Image>
                 <span className="hero-grid-4 my-auto p-4">
                     We give you a chance to acquire <br></br>Dota 2<span className="text-livingCoral">{" Collector's Cache "}</span>{"sets you've missed to obtain"}
                 </span>

@@ -116,7 +116,7 @@ function RegisterPage() {
 
                                         <div className="text-center">
                                             <Image
-                                                className="mx-auto w-48"
+                                                className="mx-auto animate-fadeOut w-48"
                                                 src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
                                                 alt="logo" />
                                             <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">

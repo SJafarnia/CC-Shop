@@ -12,7 +12,7 @@ function SetDetails(props: setType) {
         <div className='flex p-5 my-16 xs:flex-col sm:flex-row'>
             <div className='imagesection sm:w-1/2'>
                 <div className='h-full'>
-                    <Image src={HeroImg[0].link} width={1200} height={1200} alt='' className='w-full object-contain max-h-[435px] rounded-md' />
+                    <Image src={HeroImg[0].link} width={1200} height={1200} alt='' className='w-full animate-fadeOut object-contain max-h-[435px] rounded-md' />
                 </div>
             </div>
             <div className='infoSection sm:w-1/2'>

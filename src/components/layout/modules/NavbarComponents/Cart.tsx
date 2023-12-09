@@ -20,7 +20,7 @@ function Cart({ isMobile }: { isMobile: boolean }) {
     useEffect(() => {
         const handleClickOutside: any = (event: React.MouseEvent<HTMLDivElement>) => {
             if (cartRef.current && !cartRef.current.contains(event.target as Node)) {
-                setshowCart("-translate-x-[900px]");
+                setshowCart("-translate-x-[800px]");
             }
         };
 
@@ -32,7 +32,7 @@ function Cart({ isMobile }: { isMobile: boolean }) {
     }, []);
 
     useEffect(() => {
-        if (showCart == "translate-x-[900px]") {
+        if (showCart == "translate-x-[800px]") {
             document.body.classList.add('popup-menu-open');
         } else {
             document.body.classList.remove('popup-menu-open');
@@ -46,18 +46,18 @@ function Cart({ isMobile }: { isMobile: boolean }) {
     return (
         <div ref={cartRef}>
             <div className={`menu-list text-center flex gap-2 items-center z-40 cursor-pointer`}>
-                <svg xmlns="http://www.w3.org/2000/svg" onClick={() => setshowCart("translate-x-[900px]")} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+                <svg xmlns="http://www.w3.org/2000/svg" onClick={() => setshowCart("translate-x-[800px]")} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                 </svg>
                 {isMobile ?
-                    <div className="grid place-content-center text-lg" onClick={() => setshowCart("translate-x-[900px]")}>
+                    <div className="grid place-content-center text-lg" onClick={() => setshowCart("translate-x-[800px]")}>
                         <span>Cart</span>
                     </div>
                     :
                     null
                 }
             </div>
-            <div className={`${showCart} duration-500 ease-in-out bg-slate-50 shadow-lg fixed top-0 bottom-0 -left-[900px] xs:w-full sm:w-full md:w-2/4 lg:w-2/5 mr-4 z-50 h-full text-black border-b border-solid border-b-[#1A37601A]`}>
+            <div className={`${showCart} duration-500 ease-in-out bg-slate-50 shadow-lg fixed top-0 bottom-0 -left-[800px] xs:w-full sm:w-full md:w-2/4 lg:w-2/5 mr-4 z-50 h-full text-black border-b border-solid border-b-[#1A37601A]`}>
                 <header className={` rounded-md border-solid border-[#EAEAEA] h-full sticky w-full z-10`}>
                     <section className={`flex flex-col h-full text-black mx-auto relative justify-start text-center`}>
                         <div className='flex flex-col h-full justify-between'>
@@ -72,7 +72,7 @@ function Cart({ isMobile }: { isMobile: boolean }) {
                                         </div>
                                         {/* <Image src="" alt="" className="h-auto w-auto" width={146} height={146}></Image> */}
                                     </div>
-                                    <svg onClick={() => setshowCart("-translate-x-[900px]")} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`text-slate-500 w-6 h-6 cursor-pointer`}>
+                                    <svg onClick={() => setshowCart("-translate-x-[800px]")} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`text-slate-500 w-6 h-6 cursor-pointer`}>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                     </svg>
                                 </div>
@@ -84,7 +84,7 @@ function Cart({ isMobile }: { isMobile: boolean }) {
                                                     <Image src={item.img as string}
                                                         height={85}
                                                         width={97}
-                                                        className='rounded-md h-[85px] ml-2'
+                                                        className='rounded-md animate-fadeOut h-[85px] ml-2'
                                                         alt='order-picture'
                                                     >
                                                     </Image>
@@ -118,7 +118,7 @@ function Cart({ isMobile }: { isMobile: boolean }) {
                             <div className='p-4'>
                                 {
                                     cartState?.cartItems?.length ?
-                                        <Link href={'/payment'} onClick={() => setshowCart("-translate-x-[900px]")}>
+                                        <Link href={'/payment'} onClick={() => setshowCart("-translate-x-[800px]")}>
                                             <p className='p-4 w-full rounded-md bg-veryPeri text-white'>Checkout</p>
                                         </Link> : null
                                 }
