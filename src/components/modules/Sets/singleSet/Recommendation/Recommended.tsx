@@ -8,15 +8,19 @@ import RecommendCard from './RecommendCard';
 import { SwiperNavButtons } from './SwiperButtons';
 import { setType, setTypeArray } from 'types';
 import { montserrat } from '@/app/fonts';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+
 
 
 function Recommended({ relatedPosts, title, caption }: { relatedPosts: setTypeArray, title: string, caption: string }) {
+    const url = usePathname()
 
     return (
         <div className="text-center my-32">
             <div className="mb-10 text-veryPeri">
                 <h3 className="text text-4xl mb-6">{title}</h3>
-                <span className={`${montserrat.className} text-baseline text-lg`}>{caption}</span>
+                <span className={` font-montserrat text-baseline text-lg`}>{caption}</span>
             </div>
             <div className='flex items-center justify-center group flex-wrap'>
 
@@ -61,6 +65,12 @@ function Recommended({ relatedPosts, title, caption }: { relatedPosts: setTypeAr
 
                     <SwiperNavButtons />
                 </Swiper>
+                {   
+                    url == "/" && 
+                    <Link href={"/all-sets"}>
+                    <div className='mt-8 underline'>See all</div>
+                    </Link>
+                }
             </div>
         </div>
     )

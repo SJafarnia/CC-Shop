@@ -26,7 +26,7 @@ export default async function Navbar() {
                             </svg>
                         </Link>
                     </div>
-                    <div className=" ml-5 mt-1 whitespace-nowrap">
+                    <div className=" ml-5 mt-1 text-lg underline whitespace-nowrap">
                         <Link href="/all-sets">
                             {"Collector's Caches"}
                         </Link>

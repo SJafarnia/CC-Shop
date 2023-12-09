@@ -19,7 +19,7 @@ export default async function HomeTemplate() {
             <h2 className="text-5xl text-lightCoral p-4">
                 {"Collector's Cache Gift Shop"}
             </h2>
-            <div className="hero-grid md:p-4 md:grid gap-6 flex-col align-middle justify-center items-center mt-20 text-center text-xl font-semibold">
+            <div className="hero-grid md:p-4 md:grid gap-6 flex-col align-middle justify-center items-center font-montserrat mt-20 text-center text-xl font-semibold">
                 <span className="hero-grid-1 my-auto p-4">
                     Source for out of market<span className="text-livingCoral">{" Collector's Cache"}</span>
                 </span>

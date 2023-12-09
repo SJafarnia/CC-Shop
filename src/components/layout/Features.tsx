@@ -3,9 +3,9 @@ import React from 'react'
 
 function Features() {
     return (
-        <div className="container my-32 mx-auto md:px-6">
+        <div className="container my-32 mx-auto md:px-6 text-veryPeri">
             <section className="mb-32 text-center">
-                <h2 className="mb-20 text-3xl font-bold">Everything you wished for!</h2>
+                <h2 className="mb-20 text-3xl font-bold font-roboto">Everything you wished for!</h2>
 
                 <div className="grid lg:grid-cols-3 lg:gap-x-12">
                     <div className="mb-12 lg:mb-0">
@@ -22,9 +22,9 @@ function Features() {
                             </div>
                             <div className={`${montserrat.className} p-6`}>
                                 <h5 className="mb-4 text-lg font-semibold">Support 24/7</h5>
-                                <p>
+                                <p className='font-montserrat'>
                                     Having trouble? Feel free to contact support.<br></br>
-                                   {" If there are sets you clouldn't find here, Our team may be able to get you what you want!"}
+                                    {"If there are sets you clouldn't find here, Our team may be able to get you what you want!"}
 
                                 </p>
                             </div>
@@ -45,7 +45,7 @@ function Features() {
                             </div>
                             <div className={`${montserrat.className} p-6`}>
                                 <h5 className="mb-4 text-lg font-semibold">Safe and solid</h5>
-                                <p>
+                                <p className='font-montserrat'>
                                     Security is out first concern!<br></br>We ensure you recieve your sets and if anything unexpected happens, we will fix it.
                                 </p>
                             </div>
@@ -66,7 +66,7 @@ function Features() {
                             </div>
                             <div className={`${montserrat.className} p-6`}>
                                 <h5 className="mb-4 text-lg font-semibold">Extremely fast</h5>
-                                <p>
+                                <p className='font-montserrat'>
                                     We try our best to deliver your sets as fast as we can.<br></br> {"Our support team can help you find sets you couldn't find here and set it all up for you!"}
                                 </p>
                             </div>

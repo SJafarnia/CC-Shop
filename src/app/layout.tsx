@@ -1,11 +1,9 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Poppins } from 'next/font/google'
 import Layout from '@/components/layout/Layout'
 import "tw-elements/dist/css/tw-elements.min.css";
-import Providers from "@redux/Providers"
 import AuthProvider from '@/components/layout/modules/AuthProvider'
-import { roboto } from './fonts'
+import { roboto, montserrat } from './fonts'
 
 export const metadata: Metadata = {
   title: 'CC Shop',
@@ -19,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>
+      <body className={`${roboto.className} ${roboto.variable} ${montserrat.variable}`}>
         {/* <Providers> */}
         <AuthProvider>
           <Layout>
