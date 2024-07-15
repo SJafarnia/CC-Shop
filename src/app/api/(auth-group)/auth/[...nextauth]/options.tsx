@@ -1,5 +1,5 @@
 import prisma from "@utils/prisma";
-import { hash } from "bcrypt";
+import { compare } from "bcrypt";
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials"
 
@@ -11,30 +11,35 @@ export const options: NextAuthOptions = {
                 email: { label: "email;", type: "text" },
                 password: { label: "password", type: "text" },
             },
-            async authorize(credentials) {
+            async authorize(credentials: any) {
                 try {
-                    const hashedPw = hash(credentials?.password as string, 10)
                     const User = await prisma.user.findFirst({
                         where: {
                             email: credentials?.email,
-                            password: hashedPw as unknown as string
                         },
                         select: {
                             email: true,
-                            id: true
+                            id: true,
+                            password: true,
                         }
                     })
                     if (!User) {
-                        throw new Error("User not found")
-                        // return null
+                        // throw new Error("User not found")
+                        return null
                     }
                     else {
-                        return User
+                        const isPasswordTrue = await compare(credentials?.password as string, User.password);
+                        if (isPasswordTrue) {
+                            return {
+                                email: User.email,
+                                id: User.id,
+                            }
+                        } else return null
                     }
                 }
                 catch (e) {
                     throw (JSON.stringify({ "err": e }))
-                } finally{
+                } finally {
                     prisma.$disconnect()
                 }
             },
